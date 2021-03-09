@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ads</title>
+</head>
+<body>
+    {% for ad in ads %}
+        {{ ad.adGroup_name }}<br>
+        {{ ad.approved_by }}<br>
+        {{ ad.heading1 }}<br>
+        {{ ad.heading2 }}<br>
+        {{ ad.landing_page }}<br>
+        {{ ad.deadline }}<br>
+        {{ ad.comment }}<br>
+    {% endfor %}
+</body>
+</html>
