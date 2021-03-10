@@ -16,6 +16,8 @@ nav {
 .hero {
     text-align: center;
     padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: white;
 }
 
 .hero h3 {
@@ -35,4 +37,8 @@ nav {
     text-align: center;
     margin: 5px;
     padding: 10px;
+}
+
+.rounded {
+    border-radius: 10px;
 }
