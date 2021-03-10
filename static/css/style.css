@@ -26,3 +26,13 @@ nav {
     font-weight: 300;
 }
 
+.submit-button {
+    border-radius: 20px;
+    border: none;
+    background-color: green;
+    font-size: 20px;
+    color: white;
+    text-align: center;
+    margin: 5px;
+    padding: 10px;
+}

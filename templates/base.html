@@ -17,17 +17,17 @@
     <!--  Desktop Menu from Materialize  -->
     <nav class="nav-extended white text-shadow">
         <div class="nav-wrapper">
-                <a href="{{ url_for('get_index') }}" class="brand-logo"><i class="fas fa-bolt"></i> Ad reviwer</a>
+                <a href="{{ url_for('index') }}" class="brand-logo"><i class="fas fa-bolt"></i> Ad reviwer</a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger right">
                     <i class="fas fa-bars"></i></a>
             <ul class="right hide-on-med-and-down">
-                <li><a href="{{ url_for('get_index') }}">Home</a></li>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
                 <li><a href="#">Ads</a></li>
                 <li><a href="#">Ad Groups</a></li>
                 <li><a href="#">Approved Ads</a></li>
                 <li><a href="#">Sign in</a></li>
                 <li><a href="#">Sign Out</a></li>
-                <li><a href="#">Register</a></li>
+                <li><a href="{{ url_for('register') }}">Register</a></li>
             </ul>
         </div>
   </nav>
