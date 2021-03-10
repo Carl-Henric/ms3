@@ -44,9 +44,24 @@
                 <li><a href="#">Register</a></li>
   </ul>
 </header>
+
+<!-- Flash messages on top
+<section>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        {% for message in messages %}
+            <h4 class="center-align">{{ message }}</h4>
+        {% endfor %}
+    {% endif %}
+    {% endwith %}
+</section>
+-->
+
 <body>
-    {% block content %}
-    {% endblock %}
+
+        {% block content %}
+        {% endblock %}
+
 
 <!-- Jquery script-->   
 <script

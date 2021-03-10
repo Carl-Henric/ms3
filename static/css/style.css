@@ -42,3 +42,7 @@ nav {
 .rounded {
     border-radius: 10px;
 }
+
+.flashes h3 {
+    line-height: 2;
+}
