@@ -29,6 +29,10 @@ nav {
     font-weight: 300;
 }
 
+.hero button {
+    background-color: orange;
+}
+
 .submit-button {
     border-radius: 20px;
     border: none;
