@@ -25,6 +25,7 @@
                 <li><a href="#">Ads</a></li>
                 <li><a href="#">Ad Groups</a></li>
                 <li><a href="#">Approved Ads</a></li>
+                <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
                 <li><a href="{{ url_for('login') }}">Sign in</a></li>
                 <li><a href="#">Sign Out</a></li>
                 <li><a href="{{ url_for('register') }}">Register</a></li>
