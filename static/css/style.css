@@ -18,6 +18,7 @@ nav {
     padding-top: 50px;
     padding-bottom: 50px;
     background-color: white;
+    margin-bottom: 30px;
 }
 
 .hero h3 {
@@ -45,4 +46,44 @@ nav {
 
 .flashes h3 {
     line-height: 2;
+}
+
+.short-text {
+    font-size: 20px;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+footer {
+    background-color: white;
+    margin-bottom: 0px;
+}
+
+footer h5 {
+    color: darkgray;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+footer h3 {
+    vertical-align: middle;
+    text-align: center;
+    font-weight: 700;
+}
+
+footer p {
+    font-size: 12px;
+    color: darkgray;
+}
+
+
+.tagline {
+    font-size: 10px;
+    text-align: center;
 }
