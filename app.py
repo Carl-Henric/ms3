@@ -29,7 +29,7 @@ def get_ads():
     ads = mongo.db.ads.find()
     return render_template("ads.html", ads=ads)
 
-
+# Register function
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -82,7 +82,18 @@ def login():
 def profile(username):
     username = mongo.db.clients.find_one(
         {"username": session["user"]})["username"]
-    return render_template("profile.html", username=username)
+
+    if session["user"]:
+        return render_template("profile.html", username=username)
+
+    return redirect(url_for("login"))
+
+
+@app.route("/logout")
+def logout():
+    flash("You have been logged out")
+    session.pop("user")
+    return redirect(url_for('login'))
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
