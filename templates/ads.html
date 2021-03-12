@@ -18,6 +18,9 @@
                                     {% if ad.approved_by == "on" %}
                                         <b>Approved by client:</b> <i class="fas fa-check green-text"></i>
                                     {% endif %}
+                                    {% if ad.approved_by == "off" %}
+                                        <b>Approved by client:</b> <i class="fas fa-check grey-text"></i>
+                                    {% endif %}
                                 </h5></span>
                             </div>
                             <div class="row">
