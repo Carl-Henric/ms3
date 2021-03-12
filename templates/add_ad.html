@@ -19,14 +19,19 @@
                              name="heading1" type="text" class="validate" required>
                             <label for="heading1">Heading 1</label>
                         </div>
-                        <!--- select 
+         
                         <div class="row">
                             <div class="input-field col s6">
-                                <input placeholder="Heading 1 in ad" id="heading2" name="heading2" type="text" class="validate">
-                                <label for="heading2">Heading 2</label>
+                                <select id="adGroup_name" name="adGroup_name" class="validate" required>
+                                    <option value="" disabled selected>Choose Ad Group</option>
+                                        {% for adGroup in adGroups %}
+                                            <option value="{{ adGroup.adGroup_name }}">{{ adGroup.adGroup_name }}</option>
+                                        {% endfor %}
+                                </select>
+                                <label for="adGroup_name">Select Ad Group</label>
                             </div>
                         </div>
-                        --> 
+        
                     </div>
                     <!-- Heading 2 -->
                     <div class="row">

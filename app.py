@@ -98,7 +98,8 @@ def logout():
 
 @app.route("/add_ad")
 def add_ad():
-    return render_template("add_ad.html")
+    adGroups = mongo.db.adGroups.find().sort("adGroup_name", 1)
+    return render_template("add_ad.html", adGroups=adGroups)
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
