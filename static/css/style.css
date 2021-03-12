@@ -95,3 +95,23 @@ footer p {
     font-size: 10px;
     text-align: center;
 }
+
+
+.adheadings {
+    font-weight: 600;
+}
+
+.adheadingstext {
+    font-weight: 300;
+}
+
+.adcard {
+    background-color: #fafafa;
+    padding: 15px;
+    border: 2px solid black;
+    margin: 10px;
+}
+
+.dotted {
+    border: 0.5px dashed lightgray;
+}

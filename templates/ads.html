@@ -1,6 +1,53 @@
 {% extends "base.html" %}
 {% block content %}
 
+<div class="hero">
+    <h3>Ads</h3><br>
+    <h4>Check your ads below</h4>
+</div>
+<!-- Ads -->
+<div class="row">
+    <div class="container card-panel  white rounded col s12 m8 offset-m2">
+        <div class="row">
+            <div class="col s12 m8 offset-m2">
+                <div class="adcard">
+                            <div class="row">
+                                <span class="col s2"><b>Heading 1</b></span>
+                                <span class="col s6">Content</span>
+                                <span class="col s4"><b>Approved by client</b></span>
+                            </div>
+                            <div class="row">
+                                <span class="col s2"><b>Heading 2</b></span>
+                                <span class="col s6">Content</span>
+                            </div>
+                            <div class="row">
+                                <span class="col s2"><b>Description</b></span>
+                                <span class="col s6">Content</span>
+                            </div>
+                            <div class="row">
+                                <span class="col s2"><b>Landingpage</b></span>
+                                <span class="col s6">Content</span>
+                            </div>
+                            <div class="row">
+                                    <div class="col m3">
+                                    <p class="adheadings">Edit </p>
+                                    </div>
+                                    <div class="col m3">
+                                    <p class="adheadings">Delete</p>
+                                     </div>
+                                    <div class="col m3">
+                                    <p class="adheadings">Comment</p>
+                                    </div>
+                                    <div class="col m3">
+                                    <p class="adheadings">Deadline </p>
+                            </div>
+                    </div>
+            </div>
+             <hr class="dotted">
+        </div>        
+    </div>
+</div>
+</div>
     {% for ad in ads %}
         {{ ad.adGroup_name }}<br>
         {{ ad.approved_by }}<br>
