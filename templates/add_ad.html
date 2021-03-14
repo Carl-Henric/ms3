@@ -11,7 +11,7 @@
     <div class="col s12 m8 offset-m2">
       <div class="card-panel white rounded">
             <div class="row">
-                <form class="col s12" method="POST" action="">
+                <form class="col s12" method="POST" action="{{ url_for('add_ad') }}">
                     <!-- Heading 1 -->
                     <div class="row">
                         <div class="input-field col s6">
@@ -63,6 +63,14 @@
         
                                 <input id="deadline" name="deadline" type="text" class="datepicker validate" required>
                                 <label for="deadline"><i class="far fa-calendar-alt"></i> Deadline</label>
+                        </div>
+                    </div>
+                    <!-- Submit -->
+                    <div class="row">
+                        <div class="col s12 center-align">
+                            <button type="submit" class="submit-button">
+                                Add ad <i class="fas fa-plus"></i>
+                            </button>
                         </div>
                     </div>
                 </form>

@@ -16,7 +16,14 @@
                                 <span class="col s4"><h5><b>Ad Group:</b> {{ ad.adGroup_name }}</h5></span>
                                 <span class="col s8 right-align"><h5><b> </b>
                                     {% if ad.approved_by == "on" %}
-                                        <b>Approved by client:</b> <i class="fas fa-check green-text"></i>
+                                        <b>Approved by client: </b> <i class="fas fa-check green-text"></i>
+                                        <div class="switch">
+                                                <label>
+                                                <input type="checkbox">
+                                                <span class="lever"></span>
+                                                Yes
+                                                </label>
+                                        </div>
                                     {% endif %}
                                     {% if ad.approved_by == "off" %}
                                         <b>Approved by client:</b> <i class="fas fa-check grey-text"></i>

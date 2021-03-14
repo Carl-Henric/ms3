@@ -96,8 +96,22 @@ def logout():
     return redirect(url_for('login'))
 
 
-@app.route("/add_ad")
+@app.route("/add_ad", methods=["GET", "POST"])
 def add_ad():
+    if request.method == "POST":
+        ad = {
+            "adGroup_name": request.form.get("adGroup_name"),
+            "heading1": request.form.get("heading1"),
+            "heading2": request.form.get("heading2"),
+            "description": request.form.get("description"),
+            "landing_page": request.form.get("landing_page"),
+            "adGroup_name": request.form.get("adGroup_name"),
+            "deadline": request.form.get("deadline")
+        }
+        mongo.db.ads.insert_one(ad)
+        flash("Ad added!")
+        return redirect(url_for("get_ads"))
+        
     adGroups = mongo.db.adGroups.find().sort("adGroup_name", 1)
     return render_template("add_ad.html", adGroups=adGroups)
 
