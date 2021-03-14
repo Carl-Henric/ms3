@@ -114,3 +114,12 @@ footer p {
 .dotted {
     border: 0.5px dashed lightgray;
 }
+
+#myInput {
+    border: none;
+}
+
+.noborder {
+    border: none !important;
+    font-weight: 700;
+}

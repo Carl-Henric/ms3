@@ -29,6 +29,12 @@ def get_ads():
     ads = mongo.db.ads.find()
     return render_template("ads.html", ads=ads)
 
+
+@app.route("/approved_ads")
+def approved_ads():
+    ads = mongo.db.ads.find()
+    return render_template("approved_ads.html", ads=ads)
+
 # Register function
 @app.route("/register", methods=["GET", "POST"])
 def register():
@@ -111,7 +117,7 @@ def add_ad():
         mongo.db.ads.insert_one(ad)
         flash("Ad added!")
         return redirect(url_for("get_ads"))
-        
+
     adGroups = mongo.db.adGroups.find().sort("adGroup_name", 1)
     return render_template("add_ad.html", adGroups=adGroups)
 

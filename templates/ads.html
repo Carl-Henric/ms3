@@ -17,13 +17,13 @@
                                 <span class="col s8 right-align"><h5><b> </b>
                                     {% if ad.approved_by == "on" %}
                                         <b>Approved by client: </b> <i class="fas fa-check green-text"></i>
-                                        <div class="switch">
+                                        <!-- <div class="switch">
                                                 <label>
                                                 <input type="checkbox">
                                                 <span class="lever"></span>
                                                 Yes
                                                 </label>
-                                        </div>
+                                        </div> -->
                                     {% endif %}
                                     {% if ad.approved_by == "off" %}
                                         <b>Approved by client:</b> <i class="fas fa-check grey-text"></i>
@@ -31,8 +31,8 @@
                                 </h5></span>
                             </div>
                             <div class="row">
-                                <span class="col s2"><b>Heading 1</b></span>
-                                <span class="col s6">{{ ad.heading1 }}</span>
+                                <span class="col s2 m2"><b>Heading 1</b></span>
+                                <span class="col s6 m6">{{ ad.heading1 }}</span>
                             </div>
                             <div class="row">
                                 <span class="col s2"><b>Heading 2</b></span>
@@ -64,6 +64,38 @@
                                     <div class="col m3">
                                     <p class="adheadings">{{ ad.deadline }} </p>
                             </div>
+                            <!-- Comment -->
+                            <form class="col s12" method="POST"">
+                                <div class="row">
+                                    <div class="input-field col s2"><b>Comment</b></div>
+                                    <div class="input-field col s8"><b>Approved by client</b>
+                                        <!-- Switch -->
+                                              <div class="switch">
+                                                <label for="approved_by">
+                                                <input type="checkbox" id="approved_by" name="approved_by">
+                                                <span class="lever"></span>
+                                                Yes
+                                                </label>
+                                                </div>
+                                        <!-- Switch -->
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <textarea id="comment" name="comment" placeholder="Comment here" class="materialize-textarea" required></textarea>
+                                            <label for="comment"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- / Comment-->
+                            <!-- Submit -->
+                             <div class="row">
+                                <div class="col s12 center-align">
+                                <button type="submit" class="submit-button">
+                                    Save changes
+                                </button>
+                            </div>
+                    </div>
                     </div>
             </div>
              <hr class="dotted">

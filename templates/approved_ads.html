@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="hero">
+    <h3>Approved Ads</h3><br>
+    <h4>All approved ads is listed below</h4>
+</div>
+<!-- Ads -->
+<div class="row">
+    <div class="container col s12 m8 offset-m2">
+        <div class="row">
+            <div class="col s12 m8 offset-m2">
+                {% for ad in ads %}
+                {% if ad.approved_by == "on" %}
+                <div class="adcard z-depth-2">
+                            <div class="row">
+                                <span class="col s4"><h5><b>Ad Group:</b> {{ ad.adGroup_name }}</h5></span>
+                                <span class="col s8 right-align"><h5><b> </b>
+                                </h5></span>
+                            </div>
+                            <div class="row">
+                                <span class="col s2 m2"><b>Heading 1</b></span>
+                                <span class="col s6 m6">{{ ad.heading1 }}</span>
+                            </div>
+                            <div class="row">
+                                <span class="col s2"><b>Heading 2</b></span>
+                                <span class="col s6">{{ ad.heading2 }}</span>
+                            </div>
+                            <div class="row">
+                                <span class="col s2"><b>Description</b></span>
+                                <span class="col s6">{{ ad.description }}</span>
+                            </div>
+                            <div class="row">
+                                <span class="col s2"><b>Landingpage</b></span>
+                                <span class="col s6">{{ ad.landing_page }}</span>
+                            </div>
+                                <div class="row">
+                                    <hr>
+                                <span class="col s2"><b>Comment</b></span>
+                                <span class="col s6"><i>{{ ad.comment }}</i></span>
+                            </div>
+                    </div>
+            </div>
+             {% endif %}
+             {% endfor %}
+        </div>        
+    </div>
+</div>
+    {% for ad in ads %}
+        {{ ad.adGroup_name }}<br>
+        {{ ad.approved_by }}<br>
+        {{ ad.heading1 }}<br>
+        {{ ad.heading2 }}<br>
+        {{ ad.landing_page }}<br>
+        {{ ad.deadline }}<br>
+        {{ ad.comment }}<br>
+    {% endfor %}
+{% endblock %}

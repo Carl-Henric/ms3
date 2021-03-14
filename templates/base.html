@@ -26,7 +26,7 @@
                     <li><a href="{{ url_for('get_ads') }}">Ads</a></li>
                     <li><a href="{{ url_for('add_ad') }}">Add Ads</a></li>
                     <li><a href="#">Ad Groups</a></li>
-                    <li><a href="#">Approved Ads</a></li>
+                    <li><a href="{{ url_for('approved_ads') }}">Approved Ads</a></li>
                     <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
                     <li><a href="{{ url_for('logout') }}">Sign Out</a></li>
                 {% else %}
