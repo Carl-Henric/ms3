@@ -24,8 +24,19 @@ mongo = PyMongo(app)
 def index():
     return render_template("index.html")
 
-@app.route("/get_ads")
+@app.route("/get_ads", methods=["GET", "POST"])
 def get_ads():
+    if request.method == "POST":
+        approved_by = "on" if request.form.get("approved_by") else "off"
+        ad = {
+            "comment": request.form.get("comment"),
+            "approved_by": request.form.get("approved_by"),
+
+        }
+        mongo.db.ads.insert_one(ad)
+        flash("Ad added!")
+        return redirect(url_for("get_ads"))
+
     ads = mongo.db.ads.find()
     return render_template("ads.html", ads=ads)
 

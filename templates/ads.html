@@ -65,7 +65,7 @@
                                     <p class="adheadings">{{ ad.deadline }} </p>
                             </div>
                             <!-- Comment -->
-                            <form class="col s12" method="POST"">
+                            <form class="col s12" method="POST" action="{{ url_for('get_ads') }}" >
                                 <div class="row">
                                     <div class="input-field col s2"><b>Comment</b></div>
                                     <div class="input-field col s8"><b>Approved by client</b>
@@ -74,7 +74,7 @@
                                                 <label for="approved_by">
                                                 <input type="checkbox" id="approved_by" name="approved_by">
                                                 <span class="lever"></span>
-                                                Yes
+                                                on
                                                 </label>
                                                 </div>
                                         <!-- Switch -->
@@ -86,7 +86,6 @@
                                         </div>
                                     </div>
                                 </div>
-                            </form>
                             <!-- / Comment-->
                             <!-- Submit -->
                              <div class="row">
@@ -95,6 +94,7 @@
                                     Save changes
                                 </button>
                             </div>
+                            </form>
                     </div>
                     </div>
             </div>
