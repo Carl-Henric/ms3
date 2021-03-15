@@ -135,6 +135,20 @@ def add_ad():
 
 @app.route("/edit_ad/<ad_id>", methods=["GET", "POST"])
 def edit_ad(ad_id):
+
+    if request.method == "POST":
+        submit_ad = {
+            "adGroup_name": request.form.get("adGroup_name"),
+            "heading1": request.form.get("heading1"),
+            "heading2": request.form.get("heading2"),
+            "description": request.form.get("description"),
+            "landing_page": request.form.get("landing_page"),
+            "adGroup_name": request.form.get("adGroup_name"),
+            "deadline": request.form.get("deadline")
+        }
+        mongo.db.ads.update({"_id": ObjectId(ad_id)}, submit_ad)
+        flash("Ad updated")
+
     ad = mongo.db.ads.find_one({"_id": ObjectId(ad_id)})
     adGroups = mongo.db.adGroups.find().sort("adGroup_name", 1)
     return render_template("edit_ad.html", ad=ad, adGroups=adGroups)
