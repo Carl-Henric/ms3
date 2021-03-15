@@ -53,12 +53,14 @@
                             </div>
                             <div class="row">
                                     <div class="col m3">
-                                        {% if session.user|lower == ad.created_by|lower ‰}
+                                        {% if session.user|lower == ad.created_by|lower %}
                                     <a href="{{ url_for('edit_ad', ad_id=ad._id) }}" class="submit-button blue">Edit  <i class="fas fa-pen"></i></a>
                                         {% endif %}
                                     </div>
                                     <div class="col m3">
+                                        {% if session.user|lower == ad.created_by|lower %}
                                     <a href="" class="submit-button blue">Delete  <i class="fas fa-trash"></i></a>
+                                        {% endif %}
                                      </div>
                                     <div class="col m3">
                                     <button type="submit" class="submit-button green">Comment  <i class="fas fa-comment"></i></button>

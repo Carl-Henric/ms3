@@ -123,7 +123,8 @@ def add_ad():
             "description": request.form.get("description"),
             "landing_page": request.form.get("landing_page"),
             "adGroup_name": request.form.get("adGroup_name"),
-            "deadline": request.form.get("deadline")
+            "deadline": request.form.get("deadline"),
+            "created_by": session["user"]
         }
         mongo.db.ads.insert_one(ad)
         flash("Ad added!")
@@ -144,7 +145,8 @@ def edit_ad(ad_id):
             "description": request.form.get("description"),
             "landing_page": request.form.get("landing_page"),
             "adGroup_name": request.form.get("adGroup_name"),
-            "deadline": request.form.get("deadline")
+            "deadline": request.form.get("deadline"),
+            "created_by": session["user"]
         }
         mongo.db.ads.update({"_id": ObjectId(ad_id)}, submit_ad)
         flash("Ad updated")
