@@ -156,6 +156,29 @@ def edit_ad(ad_id):
     return render_template("edit_ad.html", ad=ad, adGroups=adGroups)
 
 
+@app.route("/comment_ad/<ad_id>", methods=["GET", "POST"])
+def comment_ad(ad_id):
+
+    if request.method == "POST":
+        comment_ad = {
+            "adGroup_name": request.form.get("adGroup_name"),
+            "heading1": request.form.get("heading1"),
+            "heading2": request.form.get("heading2"),
+            "description": request.form.get("description"),
+            "landing_page": request.form.get("landing_page"),
+            "adGroup_name": request.form.get("adGroup_name"),
+            "deadline": request.form.get("deadline"),
+            "comment": request.form.get("comment"),
+            "created_by": session["user"]
+        }
+        mongo.db.ads.update({"_id": ObjectId(ad_id)}, comment_ad)
+        flash("Comment Added")
+
+    ad = mongo.db.ads.find_one({"_id": ObjectId(ad_id)})
+    adGroups = mongo.db.adGroups.find().sort("adGroup_name", 1)
+    return render_template("comment_ad.html", ad=ad, adGroups=adGroups)
+
+
 @app.route("/delete_ad/<ad_id>")
 def delete_ad(ad_id):
     mongo.db.ads.remove({"_id": ObjectId(ad_id)})
