@@ -167,12 +167,12 @@ def comment_ad(ad_id):
             "description": request.form.get("description"),
             "landing_page": request.form.get("landing_page"),
             "adGroup_name": request.form.get("adGroup_name"),
-            "deadline": request.form.get("deadline"),
             "comment": request.form.get("comment"),
+            "deadline": request.form.get("deadline"),
             "created_by": session["user"]
         }
         mongo.db.ads.update({"_id": ObjectId(ad_id)}, comment_ad)
-        flash("Comment Added")
+        flash("Comment updated")
 
     ad = mongo.db.ads.find_one({"_id": ObjectId(ad_id)})
     adGroups = mongo.db.adGroups.find().sort("adGroup_name", 1)
