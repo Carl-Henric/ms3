@@ -4,6 +4,13 @@
 <div class="hero">
     <h3>Ads</h3><br>
     <h4>Check your ads below</h4>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                     {% for message in messages %}
+                          <h5 class="center-align">{{ message }}</h5>
+                   {% endfor %}
+                {% endif %}
+    {% endwith %}
 </div>
 <!-- Ads -->
 <div class="row">
@@ -59,7 +66,7 @@
                                     </div>
                                     <div class="col m3">
                                         {% if session.user|lower == ad.created_by|lower %}
-                                    <a href="" class="submit-button blue">Delete  <i class="fas fa-trash"></i></a>
+                                    <a href="{{ url_for('delete_ad', ad_id=ad._id) }}" class="submit-button blue">Delete  <i class="fas fa-trash"></i></a>
                                         {% endif %}
                                      </div>
                                     <div class="col m3">
