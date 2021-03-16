@@ -1,3 +1,8 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
 body {
     background-color: #fafafa;
 }
@@ -133,4 +138,43 @@ footer p {
 
 .boldfont {
     font-weight: 600;
+}
+
+.adheading {
+    font-size: 18px;
+    line-height: 18px;
+    font-weight: normal;
+    color: #1a0dab;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+}
+
+.adlink {
+color: #202124;
+font-size: small;
+}
+
+
+.addesciption {
+    color: #4d5156;
+    font-size: small;
+    padding-bottom: 10px;
+}
+
+/* Mobile  */
+
+@media only screen and (max-width: 600px) {
+
+.mobile-font-size {
+    font-size: 11px;
+    line-height: 12px;
+}
+
+.submit-button {
+    line-height: 40px;
+    text-align: center;
+}
+
 }

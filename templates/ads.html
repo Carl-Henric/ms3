@@ -18,10 +18,11 @@
         <div class="row">
             <div class="col s12 m8 offset-m2">
                 {% for ad in ads %}
-                    <div class="adcard z-depth-2">
+                    <div class="adcard z-depth-2 mobile-font-size">
                                 <div class="row">
-                                    <span class="col s4"><h5><b>Ad Group:</b> {{ ad.adGroup_name }}</h5></span>
-                                    <span class="col s8 right-align"><h5><b> </b>
+                                    <span class="col s3"><b>Ad Group:</b></span>
+                                    <span class="col s4">{{ ad.adGroup_name }}</span>
+                                    <span class="col s8 right-align"><b> </b>
                                         {% if ad.approved_by == "on" %}
                                             <b>Approved by client: </b> <i class="fas fa-check green-text"></i>
                                             <!-- <div class="switch">
@@ -38,19 +39,50 @@
                                     </h5></span>
                                 </div>
                                 <div class="row">
-                                    <span class="col s2 m2"><b>Heading 1</b></span>
-                                    <span class="col s6 m6">{{ ad.heading1 }}</span>
+                                    <!-- Test ad -->
+                                    <h6><b>Ad Group:</b> {{ ad.adGroup_name }} </h6>
+                                    <hr class="dotted">
+                                    <p class="adlink"><b>Ad · </b> {{ ad.landing_page }}</p>
+                                    <p class="adheading">{{ ad.heading1 }}|{{ ad.heading2 }}</p>
+                                    <p class="addesciption">{{ ad.description }}</p>
+                                    <hr class="dotted">
+                                    <!-- -->
+                                    <!-- Test buttons -->
+                                        <div class="row">
+                                        <div class="col s6 m3">
+                                            {% if session.user|lower == "admin"|lower %}
+                                        <a href="{{ url_for('edit_ad', ad_id=ad._id) }}" class="submit-button blue">Edit  <i class="fas fa-pen"></i></a>
+                                            {% endif %}
+                                        </div>
+                                        <div class="col s6 m3">
+                                            {% if session.user|lower == "admin"|lower %}
+                                        <a href="{{ url_for('delete_ad', ad_id=ad._id) }}" class="submit-button red">Delete  <i class="fas fa-trash"></i></a>
+                                            {% endif %}
+                                        </div>
+                                        <div class="row">
+                                            <div class="col s6 m3">
+                                            <a href="{{ url_for('comment_ad', ad_id=ad._id) }}" class="submit-button purple">Comment  <i class="fas fa-comment"></i></a>
+                                            </div>
+                                            <div class="col s6 m3">
+                                            <p class="adheadings"><i class="far fa-calendar-alt"></i> {{ ad.deadline }} </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- -->
+                                    <hr>
+                                    <span class="col s3"><b>Heading 1</b></span>
+                                    <span class="col s6">{{ ad.heading1 }}</span>
                                 </div>
                                 <div class="row">
-                                    <span class="col s2"><b>Heading 2</b></span>
+                                    <span class="col s3"><b>Heading 2</b></span>
                                     <span class="col s6">{{ ad.heading2 }}</span>
                                 </div>
                                 <div class="row">
-                                    <span class="col s2"><b>Description</b></span>
+                                    <span class="col s3"><b>Description</b></span>
                                     <span class="col s6">{{ ad.description }}</span>
                                 </div>
                                 <div class="row">
-                                    <span class="col s2"><b>Landingpage</b></span>
+                                    <span class="col s3"><b>Landingpage</b></span>
                                     <span class="col s6">{{ ad.landing_page }}</span>
                                 </div>
                                     <div class="row">
@@ -59,21 +91,23 @@
                                     <span class="col s6"><i>{{ ad.comment }}</i></span>
                                 </div>
                                 <div class="row">
-                                        <div class="col m3">
+                                        <div class="col s6 m3">
                                             {% if session.user|lower == "admin"|lower %}
                                         <a href="{{ url_for('edit_ad', ad_id=ad._id) }}" class="submit-button blue">Edit  <i class="fas fa-pen"></i></a>
                                             {% endif %}
                                         </div>
-                                        <div class="col m3">
+                                        <div class="col s6 m3">
                                             {% if session.user|lower == "admin"|lower %}
                                         <a href="{{ url_for('delete_ad', ad_id=ad._id) }}" class="submit-button red">Delete  <i class="fas fa-trash"></i></a>
                                             {% endif %}
                                         </div>
-                                        <div class="col m3">
-                                        <a href="{{ url_for('comment_ad', ad_id=ad._id) }}" class="submit-button purple">Comment  <i class="fas fa-comment"></i></a>
-                                        </div>
-                                        <div class="col m3">
-                                        <p class="adheadings"><i class="far fa-calendar-alt"></i> {{ ad.deadline }} </p>
+                                        <div class="row">
+                                            <div class="col s6 m3">
+                                            <a href="{{ url_for('comment_ad', ad_id=ad._id) }}" class="submit-button purple">Comment  <i class="fas fa-comment"></i></a>
+                                            </div>
+                                            <div class="col s6 m3">
+                                            <p class="adheadings"><i class="far fa-calendar-alt"></i> {{ ad.deadline }} </p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
