@@ -192,6 +192,19 @@ def adgroups():
     return render_template("adgroups.html", adGroups=adGroups)
 
 
+@app.route("/add_adgroup", methods=["GET", "POST"])
+def add_adgroup():
+    if request.method == "POST":
+        adgroup = {
+            "adGroup_name": request.form.get("adGroup_name")
+        }
+        mongo.db.adGroups.insert_one(adgroup)
+        flash("Ad Group added")
+        return redirect(url_for("adgroups"))
+
+    return render_template("add_adgroup.html")
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

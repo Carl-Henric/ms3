@@ -2,8 +2,8 @@
 {% block content %}
 
 <div class="hero">
-    <h3>Ad Groups</h3><br>
-    <h4>Check your Ad Groups here</h4>
+    <h3>Ad Groups </h3><br>
+    <a href="{{ url_for('add_adgroup') }}" class="submit-button orange">Add Ad Group  <i class="fas fa-plus"></i></a>
             {% with messages = get_flashed_messages() %}
                 {% if messages %}
                      {% for message in messages %}
@@ -17,7 +17,7 @@
         {% for adgroup in adGroups %}
             <div class="col s6 m3">
                 <div class="card-panel white center-align">
-                    <h4><i class="fas fa-object-group"></i><br>
+                    <h4><i class="fas fa-sitemap"></i><br>
                     {{ adgroup.adGroup_name }}</h4>
                         <p>Text text</p>
                         <hr class="dotted">
