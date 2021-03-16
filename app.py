@@ -122,7 +122,6 @@ def add_ad():
             "heading2": request.form.get("heading2"),
             "description": request.form.get("description"),
             "landing_page": request.form.get("landing_page"),
-            "adGroup_name": request.form.get("adGroup_name"),
             "deadline": request.form.get("deadline"),
             "created_by": session["user"]
         }
@@ -144,7 +143,6 @@ def edit_ad(ad_id):
             "heading2": request.form.get("heading2"),
             "description": request.form.get("description"),
             "landing_page": request.form.get("landing_page"),
-            "adGroup_name": request.form.get("adGroup_name"),
             "deadline": request.form.get("deadline"),
             "created_by": session["user"]
         }
@@ -166,7 +164,6 @@ def comment_ad(ad_id):
             "heading2": request.form.get("heading2"),
             "description": request.form.get("description"),
             "landing_page": request.form.get("landing_page"),
-            "adGroup_name": request.form.get("adGroup_name"),
             "comment": request.form.get("comment"),
             "deadline": request.form.get("deadline"),
             "created_by": session["user"]
@@ -208,6 +205,14 @@ def add_adgroup():
 
 @app.route("/edit_adgroup/<adgroup_id>", methods=["GET", "POST"])
 def edit_adgroup(adgroup_id):
+    if request.method == "POST":
+        submit = {
+            "adGroup_name": request.form.get("adGroup_name")
+        }
+        mongo.db.adGroups.update({"_id": ObjectId(adgroup_id)}, submit)
+        flash("Ad group updated!")
+        return redirect(url_for("adgroups"))
+
     adgroup = mongo.db.adGroups.find_one({"_id": ObjectId(adgroup_id)})
     return render_template("edit_adgroup.html", adgroup=adgroup)
 
