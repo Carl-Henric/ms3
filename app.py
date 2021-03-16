@@ -205,6 +205,12 @@ def add_adgroup():
     return render_template("add_adgroup.html")
 
 
+
+@app.route("/edit_adgroup/<adgroup_id>", methods=["GET", "POST"])
+def edit_adgroup(adgroup_id):
+    adgroup = mongo.db.adGroups.find_one({"_id": ObjectId(adgroup_id)})
+    return render_template("edit_adgroup.html", adgroup=adgroup)
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
