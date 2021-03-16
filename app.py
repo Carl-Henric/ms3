@@ -216,6 +216,15 @@ def edit_adgroup(adgroup_id):
     adgroup = mongo.db.adGroups.find_one({"_id": ObjectId(adgroup_id)})
     return render_template("edit_adgroup.html", adgroup=adgroup)
 
+
+
+@app.route("/delete_adgroup/<adgroup_id>")
+def delete_adgroup(adgroup_id):
+    mongo.db.adGroups.remove({"_id": ObjectId(adgroup_id)})
+    flash("Ad Group deleted")
+    return redirect(url_for("adgroups"))
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
