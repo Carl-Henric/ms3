@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="hero">
+    <h3>Ad Groups</h3><br>
+    <h4>Check your Ad Groups here</h4>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                     {% for message in messages %}
+                          <h5 class="center-align">{{ message }}</h5>
+                   {% endfor %}
+                {% endif %}
+    {% endwith %}
+</div>
+<div class="container">
+    <div class="row">
+        {% for adgroup in adGroups %}
+            <div class="col s6 m3">
+                <div class="card-panel white center-align">
+                    <h4><i class="fas fa-object-group"></i><br>
+                    {{ adgroup.adGroup_name }}</h4>
+                        <p>Text text</p>
+                        <hr class="dotted">
+                        <a class="waves-effect waves-light btn-small">Edit</a>
+                        <a class="waves-effect waves-light btn-small">Delete</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+            
+
+{% endblock %}

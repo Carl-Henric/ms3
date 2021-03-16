@@ -87,7 +87,7 @@ def login():
             else:
                 flash("Incorrect Username and/or Password")
                 return redirect(url_for('login'))
-            
+           
         else: 
             flash("Incorrect Username and/or Password")
             return redirect(url_for("login"))
@@ -184,6 +184,12 @@ def delete_ad(ad_id):
     mongo.db.ads.remove({"_id": ObjectId(ad_id)})
     flash("Ad deleted")
     return redirect(url_for("get_ads"))
+
+
+@app.route("/adgroups")
+def adgroups():
+    adGroups = list(mongo.db.adGroups.find().sort("adGroup_name", 1))
+    return render_template("adgroups.html", adGroups=adGroups)
 
 
 if __name__ == "__main__":
