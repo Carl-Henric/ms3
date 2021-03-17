@@ -13,49 +13,50 @@
                 {% for ad in ads %}
                 {% if ad.approved_by == "on" %}
                 <div class="adcard z-depth-2 mobile-font-size">
-                                <div class="row">
-                                    <!-- Ads -->
-                                    <div class="ad-container">
-                                        <p><b> Ad Group:</b> {{ ad.adGroup_name }} 
-                                        <span class="right">
-                                            <!-- Approved Ads-->
-                                            {% if ad.approved_by == "on" %}
-                                                    <b>Approved by client: </b> <i class="fas fa-check green-text"></i>
-                                                {% endif %}
-                                                {% if ad.approved_by == "off" %}
-                                                    <b>Approved by client:</b> <i class="fas fa-check grey-text"></i>
-                                            {% endif %}
-                                        </span><br>
-                                        <b> Deadline:</b>  {{ ad.deadline }}</p>
-                                        <!-- Display Ad-->
-                                        <div class="ad-exempel">
-                                            <p class="adlink"><b>Ad · </b> {{ ad.landing_page }}</p>
-                                            <p class="adheading">{{ ad.heading1 }} | {{ ad.heading2 }} {{ ad.heading3 }}</p>
-                                            <p class="addesciption">{{ ad.description }} {{ ad.description2 }}</p>
-                                        </div>    
-                                        <!-- Client comment on ad-->
-                                            {% if ad.comment != null %}
-                                            <div class="comment">
-                                                <p><b><i class="fas fa-comment"></i> Comment by client:</b><br> <em>{{ ad.comment }} </em></p>
-                                                <!-- <div class="switch">
+                    <div class="row">
+                        <!-- Ads -->
+                        <div class="ad-container">
+                            <p><b> Ad Group:</b> {{ ad.adGroup_name }}
+                                <span class="right">
+                                    <!-- Approved Ads-->
+                                    {% if ad.approved_by == "on" %}
+                                    <b>Approved by client: </b> <i class="fas fa-check green-text"></i>
+                                    {% endif %}
+                                    {% if ad.approved_by == "off" %}
+                                    <b>Approved by client:</b> <i class="fas fa-check grey-text"></i>
+                                    {% endif %}
+                                </span><br>
+                                <b> Deadline:</b> {{ ad.deadline }}</p>
+                            <!-- Display Ad-->
+                            <div class="ad-exempel">
+                                <p class="adlink"><b>Ad · </b> {{ ad.landing_page }}</p>
+                                <p class="adheading">{{ ad.heading1 }} | {{ ad.heading2 }} {{ ad.heading3 }}</p>
+                                <p class="addesciption">{{ ad.description }} {{ ad.description2 }}</p>
+                            </div>
+                            <!-- Client comment on ad-->
+                            {% if ad.comment != null %}
+                            <div class="comment">
+                                <p><b><i class="fas fa-comment"></i> Comment by client:</b><br> <em>{{ ad.comment }}
+                                    </em></p>
+                                <!-- <div class="switch">
                                                         <label>
                                                         <input type="checkbox">
                                                         <span class="lever"></span>
                                                         Yes
                                                         </label>
                                                 </div> -->
-                                            </div>
-                                            {% endif %}
-                                        
-                                    </div>
-                                    </div>
                             </div>
+                            {% endif %}
+
+                        </div>
                     </div>
+                </div>
             </div>
-             {% endif %}
-             {% endfor %}
-        </div>        
+        </div>
+        {% endif %}
+        {% endfor %}
     </div>
+</div>
 </div>
 
 {% endblock %}

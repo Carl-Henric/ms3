@@ -19,21 +19,6 @@
             <div class="col s12 m8 offset-m2">
                 {% for ad in ads %}
                     <div class="adcard z-depth-2 mobile-font-size">
-                                    <span class="col s8 right-align"><b> </b>
-                                        {% if ad.approved_by == "on" %}
-                                            <b>Approved by client: </b> <i class="fas fa-check green-text"></i>
-                                            <!-- <div class="switch">
-                                                    <label>
-                                                    <input type="checkbox">
-                                                    <span class="lever"></span>
-                                                    Yes
-                                                    </label>
-                                            </div> -->
-                                        {% endif %}
-                                        {% if ad.approved_by == "off" %}
-                                            <b>Approved by client:</b> <i class="fas fa-check grey-text"></i>
-                                        {% endif %}
-                                    </h5></span>
                                 <div class="row">
                                     <!-- Ads -->
                                     <div class="ad-container">
@@ -61,9 +46,9 @@
                                         
                                     </div>
                                     <!-- Comment, edit, delete buttons -->
-                                                <div class="col s5 m3">
+                                            <div class="col s5 m3">
                                                 <a href="{{ url_for('comment_ad', ad_id=ad._id) }}" class="submit-button purple">Comment  <i class="fas fa-comment"></i></a>
-                                                </div>
+                                            </div>
                                             <div class="col s3 m3">
                                                 {% if session.user|lower == "admin"|lower %}
                                             <a href="{{ url_for('edit_ad', ad_id=ad._id) }}" class="submit-button blue">Edit  <i class="fas fa-pen"></i></a>
