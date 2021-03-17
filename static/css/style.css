@@ -64,6 +64,7 @@ nav {
 
 .flashes h3 {
     line-height: 2;
+    font-weight: 600;
 }
 
 .short-text {
@@ -137,7 +138,7 @@ footer p {
 }
 
 .boldfont {
-    font-weight: 600;
+    font-weight: 700;
 }
 .ad-exempel {
     background-color: white;
@@ -183,6 +184,11 @@ font-size: 14px;
 
 .hidden {
     display: none;
+}
+
+.imagesize {
+    width: 100%;
+    border-radius: 10px;
 }
 
 /* ------------------------------------------- Mobile  */

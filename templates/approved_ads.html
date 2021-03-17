@@ -12,32 +12,43 @@
             <div class="col s12 m8 offset-m2">
                 {% for ad in ads %}
                 {% if ad.approved_by == "on" %}
-                <div class="adcard z-depth-2">
-                            <div class="row">
-                                <span class="col s4"><h5><b>Ad Group:</b> {{ ad.adGroup_name }}</h5></span>
-                                <span class="col s8 right-align"><h5><b> </b>
-                                </h5></span>
-                            </div>
-                            <div class="row">
-                                <span class="col s2 m2"><b>Heading 1</b></span>
-                                <span class="col s6 m6">{{ ad.heading1 }}</span>
-                            </div>
-                            <div class="row">
-                                <span class="col s2"><b>Heading 2</b></span>
-                                <span class="col s6">{{ ad.heading2 }}</span>
-                            </div>
-                            <div class="row">
-                                <span class="col s2"><b>Description</b></span>
-                                <span class="col s6">{{ ad.description }}</span>
-                            </div>
-                            <div class="row">
-                                <span class="col s2"><b>Landingpage</b></span>
-                                <span class="col s6">{{ ad.landing_page }}</span>
-                            </div>
+                <div class="adcard z-depth-2 mobile-font-size">
                                 <div class="row">
-                                    <hr>
-                                <span class="col s2"><b>Comment</b></span>
-                                <span class="col s6"><i>{{ ad.comment }}</i></span>
+                                    <!-- Ads -->
+                                    <div class="ad-container">
+                                        <p><b> Ad Group:</b> {{ ad.adGroup_name }} 
+                                        <span class="right">
+                                            <!-- Approved Ads-->
+                                            {% if ad.approved_by == "on" %}
+                                                    <b>Approved by client: </b> <i class="fas fa-check green-text"></i>
+                                                {% endif %}
+                                                {% if ad.approved_by == "off" %}
+                                                    <b>Approved by client:</b> <i class="fas fa-check grey-text"></i>
+                                            {% endif %}
+                                        </span><br>
+                                        <b> Deadline:</b>  {{ ad.deadline }}</p>
+                                        <!-- Display Ad-->
+                                        <div class="ad-exempel">
+                                            <p class="adlink"><b>Ad · </b> {{ ad.landing_page }}</p>
+                                            <p class="adheading">{{ ad.heading1 }} | {{ ad.heading2 }} {{ ad.heading3 }}</p>
+                                            <p class="addesciption">{{ ad.description }} {{ ad.description2 }}</p>
+                                        </div>    
+                                        <!-- Client comment on ad-->
+                                            {% if ad.comment != null %}
+                                            <div class="comment">
+                                                <p><b><i class="fas fa-comment"></i> Comment by client:</b><br> <em>{{ ad.comment }} </em></p>
+                                                <!-- <div class="switch">
+                                                        <label>
+                                                        <input type="checkbox">
+                                                        <span class="lever"></span>
+                                                        Yes
+                                                        </label>
+                                                </div> -->
+                                            </div>
+                                            {% endif %}
+                                        
+                                    </div>
+                                    </div>
                             </div>
                     </div>
             </div>
@@ -46,13 +57,5 @@
         </div>        
     </div>
 </div>
-    {% for ad in ads %}
-        {{ ad.adGroup_name }}<br>
-        {{ ad.approved_by }}<br>
-        {{ ad.heading1 }}<br>
-        {{ ad.heading2 }}<br>
-        {{ ad.landing_page }}<br>
-        {{ ad.deadline }}<br>
-        {{ ad.comment }}<br>
-    {% endfor %}
+
 {% endblock %}
