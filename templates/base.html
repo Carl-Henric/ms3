@@ -11,13 +11,13 @@
     {% endblock %}
 
 
-    <title>Ad review</title>
+    <title>Ad review - streamline your ad production</title>
 </head>
 <header>
     <!--  Desktop Menu from Materialize  -->
     <nav class="nav-extended white text-shadow z-depth-3">
         <div class="nav-wrapper container">
-                <a href="{{ url_for('index') }}" class="brand-logo"><i class="fas fa-bolt"></i> Ad reviwer</a>
+                <a href="{{ url_for('index') }}" class="logo"><i class="fas fa-bolt"></i> Ad reviewer</a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger right">
                     <i class="fas fa-bars"></i></a>
             <ul class="right hide-on-med-and-down">
@@ -42,13 +42,20 @@
   <!-- Mobile menu from Materialize -->
   <ul class="sidenav" id="mobile-demo">
                 <li><h4 class="center-align"><i class="fas fa-bolt"></i>Ad Reviewer</h4></li>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Ads</a></li>
-                <li><a href="#">Ad Groups</a></li>
-                <li><a href="#">Approved Ads</a></li>
-                <li><a href="#">Sign in</a></li>
-                <li><a href="#">Sign Out</a></li>
-                <li><a href="#">Register</a></li>
+  <li><a href="{{ url_for('index') }}">Home</a></li>
+                {% if session.user %}
+                    <li><a href="{{ url_for('get_ads') }}">Ads</a></li>
+                    <li><a href="{{ url_for('adgroups') }}">Ad Groups</a></li>
+                    {% if session.user|lower == "admin"|lower %}
+                    <li><a href="{{ url_for('add_ad') }}">Add Ads</a></li>
+                    <li><a href="{{ url_for('approved_ads') }}">Approved Ads</a></li>
+                    {% endif %}
+                    <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
+                    <li><a href="{{ url_for('logout') }}">Sign Out</a></li>
+                    {% else %}
+                    <li><a href="{{ url_for('login') }}">Sign In</a></li>
+                    <li><a href="{{ url_for('register') }}">Register</a></li>
+                {% endif %}
   </ul>
 </header>
 
@@ -72,30 +79,35 @@
 {% block footer %}
     <footer>
         <div class="row container">
-            <div class="col s4">
-                <h3>Ad reviewer©</h3><p class="tagline">Streamlining advertising</p>
-            </div>
-            <div class="col s2">
-            </div>
-            <div class="col s6 m2">
-                <h5>Ad Reviewer</h5>
-                <p>
+            <div class="col s12 m4">
+                <h3 class="logo">Ad reviewer©</h3>
+                   <p>
                     Ad Rewview is as sevrice that helps Agencys and Clients streamline their Google Ad workflow. 
                 </p>
             </div>
-            <div class="col s6 m2">
+            <div class="col s1 m2">
+
+            </div>
+            <div class="col s5 m2">
                 <h5>Menu</h5>
                  <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Ads</a></li>
-                    <li><a href="#">Ad Groups</a></li>
-                    <li><a href="#">Approved Ads</a></li>
-                    <li><a href="#">Sign in</a></li>
-                    <li><a href="#">Sign Out</a></li>
-                    <li><a href="#">Register</a></li>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                {% if session.user %}
+                    <li><a href="{{ url_for('get_ads') }}">Ads</a></li>
+                    <li><a href="{{ url_for('adgroups') }}">Ad Groups</a></li>
+                    {% if session.user|lower == "admin"|lower %}
+                    <li><a href="{{ url_for('add_ad') }}">Add Ads</a></li>
+                    <li><a href="{{ url_for('approved_ads') }}">Approved Ads</a></li>
+                    {% endif %}
+                    <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
+                    <li><a href="{{ url_for('logout') }}">Sign Out</a></li>
+                    {% else %}
+                    <li><a href="{{ url_for('login') }}">Sign In</a></li>
+                    <li><a href="{{ url_for('register') }}">Register</a></li>
+                {% endif %}
                  </ul>
             </div>
-            <div class="col s6 m2">
+            <div class="col s6 m4">
                 <h5>Contact</h5>
                 <ul>
                     <li><a href="mailto:carlhenric.grip@gmail.com"><i class="far fa-envelope"></i> Mail</a></li>
