@@ -120,7 +120,9 @@ def add_ad():
             "adGroup_name": request.form.get("adGroup_name"),
             "heading1": request.form.get("heading1"),
             "heading2": request.form.get("heading2"),
+            "heading3": request.form.get("heading3"),
             "description": request.form.get("description"),
+            "description2": request.form.get("description2"),
             "landing_page": request.form.get("landing_page"),
             "deadline": request.form.get("deadline"),
             "created_by": session["user"]
@@ -141,7 +143,9 @@ def edit_ad(ad_id):
             "adGroup_name": request.form.get("adGroup_name"),
             "heading1": request.form.get("heading1"),
             "heading2": request.form.get("heading2"),
+            "heading3": request.form.get("heading3"),
             "description": request.form.get("description"),
+            "description2": request.form.get("description2"),
             "landing_page": request.form.get("landing_page"),
             "deadline": request.form.get("deadline"),
             "created_by": session["user"]
@@ -162,11 +166,13 @@ def comment_ad(ad_id):
             "adGroup_name": request.form.get("adGroup_name"),
             "heading1": request.form.get("heading1"),
             "heading2": request.form.get("heading2"),
+            "heading3": request.form.get("heading3"),
             "description": request.form.get("description"),
+            "description2": request.form.get("description2"),
             "landing_page": request.form.get("landing_page"),
-            "comment": request.form.get("comment"),
             "deadline": request.form.get("deadline"),
-            "created_by": session["user"]
+            "created_by": session["user"],
+            "comment": request.form.get("comment")
         }
         mongo.db.ads.update({"_id": ObjectId(ad_id)}, comment_ad)
         flash("Comment updated")

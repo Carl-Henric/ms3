@@ -20,6 +20,7 @@
             <div class="row">
                 <form class="col s12" method="POST" action="{{ url_for('comment_ad', ad_id=ad._id) }}">
                     <!-- Heading 1 -->
+                    <div class="hidden">
                     <div class="row">
                         <div class="input-field col s6">
                             <input placeholder="Heading 1 in ad" id="heading1" maxlength="30"
@@ -60,14 +61,7 @@
                                 <label for="description">Description</label>
                         </div>
                     </div>
-                    <!-- Comment -->
-                    <div class="row">
-                        <div class="input-field col s12">
-                                <textarea id="comment" placeholder="comment" maxlength="90"
-                                 name="comment" class="materialize-textarea" required>{{ ad.comment }}</textarea>
-                                <label for="comment">comment</label>
-                        </div>
-                    </div>
+                <!-- hidden div < -->
                     <!-- Landingpage -->
                         <div class="row">
                             <div class="input-field col s6">
@@ -85,11 +79,20 @@
                                 <label for="deadline"><i class="far fa-calendar-alt"></i> Deadline</label>
                         </div>
                     </div>
+                </div>
+                    <!-- Comment -->
+                    <div class="row">
+                        <div class="input-field col s12">
+                                <textarea id="comment" placeholder="comment" maxlength="90"
+                                 name="comment" class="materialize-textarea" required>{{ ad.comment }}</textarea>
+                                <label for="comment">comment</label>
+                        </div>
+                    </div>
                     <!-- Submit -->
                     <div class="row">
                         <div class="col s12 center-align">
                             <a href="{{ url_for('get_ads') }}" class="submit-button orange">Cancel <i class="fas fa-times"></i></a>
-                            <button type="submit" class="submit-button">
+                            <button type="submit" class="submit-button green">
                                 Send comment <i class="fas fa-pen"></i>
                             </button>
                         </div>
