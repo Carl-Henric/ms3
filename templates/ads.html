@@ -46,10 +46,13 @@
                                         
                                     </div>
                                     <!-- Comment, edit, delete buttons -->
-                                            <div class="col s5 m3">
+                                    <div class="col s5 m3">
+                                                <a href="{{ url_for('comment_ad', ad_id=ad._id) }}" class="submit-button green">Approve  <i class="fas fa-thumbs-up"></i></a>
+                                    </div>        
+                                    <div class="col s5 m3">
                                                 <a href="{{ url_for('comment_ad', ad_id=ad._id) }}" class="submit-button purple">Comment  <i class="fas fa-comment"></i></a>
-                                            </div>
-                                            <div class="col s3 m3">
+                                    </div>
+                                    <div class="col s3 m3">
                                                 {% if session.user|lower == "admin"|lower %}
                                             <a href="{{ url_for('edit_ad', ad_id=ad._id) }}" class="submit-button blue">Edit  <i class="fas fa-pen"></i></a>
                                                 {% endif %}
