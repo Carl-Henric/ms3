@@ -51,12 +51,28 @@
                                 <label for="heading2">Heading 2</label>
                         </div>
                     </div>
+                    <!-- Heading 3 -->
+                    <div class="row">
+                        <div class="input-field col s6">
+                                <input placeholder="Heading 3 in ad" maxlength="30" id="heading3" name="heading3"
+                                value="{{ ad.heading3 }}" type="text" class="validate" required>
+                                <label for="heading3">Heading 3</label>
+                        </div>
+                    </div>
                     <!-- Description -->
                     <div class="row">
                         <div class="input-field col s12">
                                 <textarea id="description" placeholder="Ad description" maxlength="90"
                                  name="description" class="materialize-textarea" required>{{ ad.description }}</textarea>
                                 <label for="description">Description</label>
+                        </div>
+                    </div>
+                    <!-- Description2 -->
+                    <div class="row">
+                        <div class="input-field col s12">
+                                <textarea id="description2" placeholder="Ad description" maxlength="90"
+                                 name="description2" class="materialize-textarea" required>{{ ad.description2 }}</textarea>
+                                <label for="description2">Description #2</label>
                         </div>
                     </div>
                     <!-- Landingpage -->
