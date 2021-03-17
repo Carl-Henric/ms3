@@ -24,8 +24,8 @@
                     <li><a href="{{ url_for('index') }}">Home</a></li>
                 {% if session.user %}
                     <li><a href="{{ url_for('get_ads') }}">Ads</a></li>
-                    <li><a href="{{ url_for('adgroups') }}">Ad Groups</a></li>
                     {% if session.user|lower == "admin"|lower %}
+                    <li><a href="{{ url_for('adgroups') }}">Ad Groups</a></li>
                             <li><a href="{{ url_for('add_ad') }}">Add Ads</a></li>
                             <li><a href="{{ url_for('approved_ads') }}">Approved Ads</a></li>
                         {% endif %}
@@ -45,8 +45,8 @@
   <li><a href="{{ url_for('index') }}">Home</a></li>
                 {% if session.user %}
                     <li><a href="{{ url_for('get_ads') }}">Ads</a></li>
-                    <li><a href="{{ url_for('adgroups') }}">Ad Groups</a></li>
                     {% if session.user|lower == "admin"|lower %}
+                    <li><a href="{{ url_for('adgroups') }}">Ad Groups</a></li>
                     <li><a href="{{ url_for('add_ad') }}">Add Ads</a></li>
                     <li><a href="{{ url_for('approved_ads') }}">Approved Ads</a></li>
                     {% endif %}
@@ -94,8 +94,8 @@
                 <li><a href="{{ url_for('index') }}">Home</a></li>
                 {% if session.user %}
                     <li><a href="{{ url_for('get_ads') }}">Ads</a></li>
-                    <li><a href="{{ url_for('adgroups') }}">Ad Groups</a></li>
                     {% if session.user|lower == "admin"|lower %}
+                    <li><a href="{{ url_for('adgroups') }}">Ad Groups</a></li>
                     <li><a href="{{ url_for('add_ad') }}">Add Ads</a></li>
                     <li><a href="{{ url_for('approved_ads') }}">Approved Ads</a></li>
                     {% endif %}
