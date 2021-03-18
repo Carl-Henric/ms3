@@ -1,98 +1,99 @@
-{% extends "base.html" %} 
-{% block content %} 
+{% extends "base.html" %}
+{% block content %}
 
-<div class="hero">
-    <h3>Ads</h3><br>
-    <h4>Check your ads below</h4>
-    {% with messages = get_flashed_messages() %}
-    {% if messages %}
-    {% for message in messages %}
-    <h5 class="center-align">{{ message }}</h5>
-    {% endfor %}
-    {% endif %}
-    {% endwith %}
-</div>
-<!-- Ads -->
-<div class="row">
-    <div class="container card-panel  white rounded col s12 m8 offset-m2">
-        <div class="row">
-            <div class="col s12 m8 offset-m2">
-                {% for ad in ads %}
-                <div class="adcard z-depth-2 mobile-font-size">
-                    <div class="row">
-                        <!-- Ads -->
-                        <div class="ad-container">
-                            <p><b> Ad Group:</b> {{ ad.adGroup_name }}
-                                <span class="right">
-                                    {% if ad.approved_by == "on" %}
-                                    <b>Approved by client: </b> <i class="fas fa-check green-text"></i>
-                                    {% endif %}
-                                </span><br>
-                                <b> Deadline:</b> {{ ad.deadline }}</p>
-                            <div class="ad-exempel">
-                                <p class="adlink"><b>Ad · </b> {{ ad.landing_page }}</p>
-                                <p class="adheading">{{ ad.heading1 }} | {{ ad.heading2 }} {{ ad.heading3 }}</p>
-                                <p class="addesciption">{{ ad.description }} {{ ad.description2 }}</p>
-                            </div>
-                            <!-- Client comment on ad-->
-                            {% if ad.comment != null %}
-                            <div class="comment">
-                                <p><b><i class="fas fa-comment"></i> Comment by client:</b><br> <em>{{ ad.comment }}
-                                    </em></p>
-                                <!-- <div class="switch">
-                                                        <label>
-                                                        <input type="checkbox">
-                                                        <span class="lever"></span>
-                                                        Yes
-                                                        </label>
-                                                </div> -->
-                            </div>
-                            {% endif %}
 
-                        </div>
-                        <!-- Comment, edit, delete buttons -->
-                        <div class="col s6 m3">
-                            <form method="POST" action="{{ url_for('get_ads', ad_id=ad._id) }}">
-                                <button type="submit" value="on" name="approved_by">Approve</button>
-                            </form>
-                            <a href="{{ url_for('comment_ad', ad_id=ad._id) }}" class="submit-button green">Approve <i
-                                    class="fas fa-thumbs-up"></i></a>
-                        </div>
-                        <div class="col s6 m3">
-                            <a href="{{ url_for('comment_ad', ad_id=ad._id) }}" class="submit-button purple">Comment <i
-                                    class="fas fa-comment"></i></a>
-                        </div>
-                        <div class="col s6 m3">
-                            {% if session.user|lower == "admin"|lower %}
-                            <a href="{{ url_for('edit_ad', ad_id=ad._id) }}" class="submit-button blue">Edit <i
-                                    class="fas fa-pen"></i></a>
-                            {% endif %}
-                        </div>
-                        <div class="col s6 m3">
-                            {% if session.user|lower == "admin"|lower %}
-                            <a href="{{ url_for('delete_ad', ad_id=ad._id) }}" class="submit-button red">Delete <i
-                                    class="fas fa-trash"></i></a>
-                            {% endif %}
+    <div class="hero">
+        <h3>Ads</h3><br>
+        <h4>Check your ads below</h4>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <h5 class="center-align">{{ message }}</h5>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+    </div>
+    <!-- Ads -->
+    <div class="row">
+        <div class="container card-panel  white rounded col s12 m8 offset-m2">
+            <div class="row">
+                <div class="col s12 m8 offset-m2">
+                    {% for ad in ads %}
+                    <div class="adcard z-depth-2 mobile-font-size">
+                        <div class="row">
+                            <!-- Ads -->
+                            <div class="ad-container">
+                                <p><b> Ad Group:</b> {{ ad.adGroup_name }}
+                                    <span class="right">
+                                        {% if ad.approved_by == "on" %}
+                                        <b>Approved by client: </b> <i class="fas fa-check green-text"></i>
+                                        {% endif %}
+                                    </span><br>
+                                    <b> Deadline:</b> {{ ad.deadline }}</p>
+                                <div class="ad-exempel">
+                                    <p class="adlink"><b>Ad · </b> {{ ad.landing_page }}</p>
+                                    <p class="adheading">{{ ad.heading1 }} | {{ ad.heading2 }} {{ ad.heading3 }}</p>
+                                    <p class="addesciption">{{ ad.description }} {{ ad.description2 }}</p>
+                                </div>
+                                <!-- Client comment on ad-->
+                                {% if ad.comment != null %}
+                                <div class="comment">
+                                    <p><b><i class="fas fa-comment"></i> Comment by client:</b><br> <em>{{ ad.comment }}
+                                        </em></p>
+                                    <!-- <div class="switch">
+                                                            <label>
+                                                            <input type="checkbox">
+                                                            <span class="lever"></span>
+                                                            Yes
+                                                            </label>
+                                                    </div> -->
+                                </div>
+                                {% endif %}
+
+                            </div>
+                            <!-- Comment, edit, delete buttons -->
+                            <div class="col s6 m3">
+                                <form method="POST" action="{{ url_for('get_ads', approved_id=approved._id) }}">
+                                    <button type="submit" value="on" name="approved_by">Approve</button>
+                                </form>
+                                <a href="{{ url_for('comment_ad', ad_id=ad._id) }}" class="submit-button green">Approve <i
+                                        class="fas fa-thumbs-up"></i></a>
+                            </div>
+                            <div class="col s6 m3">
+                                <a href="{{ url_for('comment_ad', ad_id=ad._id) }}" class="submit-button purple">Comment <i
+                                        class="fas fa-comment"></i></a>
+                            </div>
+                            <div class="col s6 m3">
+                                {% if session.user|lower == "admin"|lower %}
+                                <a href="{{ url_for('edit_ad', ad_id=ad._id) }}" class="submit-button blue">Edit <i
+                                        class="fas fa-pen"></i></a>
+                                {% endif %}
+                            </div>
+                            <div class="col s6 m3">
+                                {% if session.user|lower == "admin"|lower %}
+                                <a href="{{ url_for('delete_ad', ad_id=ad._id) }}" class="submit-button red">Delete <i
+                                        class="fas fa-trash"></i></a>
+                                {% endif %}
+                            </div>
                         </div>
                     </div>
+
+                    {% endfor %}
+
+
+
                 </div>
-
-                {% endfor %}
-
-
-
             </div>
         </div>
     </div>
-</div>
-<!-- {% for ad in ads %}
-        {{ ad.adGroup_name }}<br>
-        {{ ad.approved_by }}<br>
-        {{ ad.heading1 }}<br>
-        {{ ad.heading2 }}<br>
-        {{ ad.landing_page }}<br>
-        {{ ad.deadline }}<br>
-        {{ ad.comment }}<br>
-    {% endfor %} -->
+    <!-- {% for ad in ads %}
+            {{ ad.adGroup_name }}<br>
+            {{ ad.approved_by }}<br>
+            {{ ad.heading1 }}<br>
+            {{ ad.heading2 }}<br>
+            {{ ad.landing_page }}<br>
+            {{ ad.deadline }}<br>
+            {{ ad.comment }}<br>
+        {% endfor %} -->
 {% endblock %}
 </div>

@@ -24,16 +24,18 @@ mongo = PyMongo(app)
 def index():
     return render_template("index.html")
 
+
 # Ads.html function
 
+
 @app.route("/get_ads/", methods=["GET", "POST"])
-def get_ads():
+def get_ads(approved_id):
     if request.method == "POST":
         # approved_by = "on" if request.form.get("approved_by") else "off"
         approve = {
             "approved_by": request.form.get("approved_by")
         }
-        mongo.db.ads.update({"_id": ObjectId(ad_id)}, approve)
+        mongo.db.ads.update({"_id": ObjectId(approved_id)}, approve)
         flash("Approved!")
         return redirect(url_for("get_ads"))
 
