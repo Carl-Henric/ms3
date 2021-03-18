@@ -3,38 +3,43 @@
 
 <div class="hero">
     <h3>Registrate below to start create and review ads</h3><br>
-    <h4>Already register? <a href="{{ url_for('login')}}"> Login </a><a class="btn-floating pulse  green darken-2"><i class="fas fa-chevron-circle-right"></i></a> 
+    <h4>Already register? <a href="{{ url_for('login')}}"> Login </a>
+        <a class="btn-floating pulse  green darken-2">
+            <i class="fas fa-chevron-circle-right"></i></a>
     </h4>
 </div>
 <div class="container">
     <div class="row">
-      <div class="col s12 m6">
+        <div class="col s12 m6">
             <h3 class="center-align">Register</h3>
-                <p class="short-text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur mattis condimentum nisl, non interdum dui
-                    ultricies vel. Integer feugiat posuere semper. Donec tortor sem, molestie nec purus non, fermentum rutrum nisl.
-                    Morbi cursus turpis libero, non vehicula erat dignissim pharetra. In eu sapien vel felis congue mattis
-                </p>    
-      
-      </div>         
-      <div class="col s12 m6">
-           <!-- Card panel -->
+            <p class="short-text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur mattis condimentum nisl, non interdum
+                dui
+                ultricies vel. Integer feugiat posuere semper. Donec tortor sem, molestie nec purus non, fermentum
+                rutrum nisl.
+                Morbi cursus turpis libero, non vehicula erat dignissim pharetra. In eu sapien vel felis congue mattis
+            </p>
+
+        </div>
+        <div class="col s12 m6">
+            <!-- Card panel -->
             <div class="row">
                 <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('register') }}">
                     <div class="card-panel  white z-depth-4 rounded">
                         <!-- Flash messages-->
-                            {% with messages = get_flashed_messages() %}
-                                {% if messages %}
-                                    {% for message in messages %}
-                                        <h5 class="center-align">{{ message }}</h5>
-                                    {% endfor %}
-                                {% endif %}
-                             {% endwith %}
+                        {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                        {% for message in messages %}
+                        <h5 class="center-align">{{ message }}</h5>
+                        {% endfor %}
+                        {% endif %}
+                        {% endwith %}
                         <!-- Username -->
                         <div class="row">
                             <div class="input-field col s12">
-                                <input name="username" id="username" minlength="5" maxlength="20" type="text" class="validate" required>
-                                 <label for="username">Username</label>
+                                <input name="username" id="username" minlength="5" maxlength="20" type="text"
+                                    class="validate" required>
+                                <label for="username">Username</label>
                             </div>
                         </div>
                         <div class="row">
@@ -47,22 +52,24 @@
                         <!-- Password-->
                         <div class="row">
                             <div class="input-field col s12">
-                                <input name="password" id="password" minlength="5" maxlength="20" type="password" class="validate" required>
-                                  <label for="password">Password</label>
+                                <input name="password" id="password" minlength="5" maxlength="20" type="password"
+                                    class="validate" required>
+                                <label for="password">Password</label>
                             </div>
                         </div>
                         <!-- Submit button -->
                         <div class="center-align">
-                        <button type="submit" class="submit-button pink">Register <i class="fas fa-chevron-circle-right"></i></button>
+                            <button type="submit" class="submit-button pink">Register <i
+                                    class="fas fa-chevron-circle-right"></i></button>
                         </div>
                     </div>
                 </form>
             </div>
-      </div>
-            
-      </div>
+        </div>
+
     </div>
 </div>
+</div>
 
-            
+
 {% endblock %}

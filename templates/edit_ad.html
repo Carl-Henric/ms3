@@ -1,111 +1,113 @@
-
-
 {% extends "base.html" %}
 {% block content %}
 <div class="hero">
     <h3>Edit Ad</h3><br>
-                {% with messages = get_flashed_messages() %}
-                {% if messages %}
-                     {% for message in messages %}
-                          <h5 class="center-align">{{ message }}</h5>
-                   {% endfor %}
-                {% endif %}
-            {% endwith %}
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <h5 class="center-align">{{ message }}</h5>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
 </div>
 <div class="container">
-  <div class="row">
-    <div class="col s12 m8 offset-m2">
-      <div class="card-panel white rounded">
-            <div class="row">
-                <form class="col s12" method="POST" action="{{ url_for('edit_ad', ad_id=ad._id) }}">
-                    <!-- Heading 1 -->
-                    <div class="row">
-                        <div class="input-field col s6">
-                            <input placeholder="Heading 1 in ad" id="heading1" maxlength="30"
-                             value="{{ ad.heading1 }}" name="heading1" type="text" class="validate" required>
-                            <label for="heading1">Heading 1</label>
-                        </div>
-                        <!-- Ad Group -->
+    <div class="row">
+        <div class="col s12 m8 offset-m2">
+            <div class="card-panel white rounded">
+                <div class="row">
+                    <form class="col s12" method="POST" action="{{ url_for('edit_ad', ad_id=ad._id) }}">
+                        <!-- Heading 1 -->
                         <div class="row">
                             <div class="input-field col s6">
-                                <select id="adGroup_name" name="adGroup_name" class="validate" required>
-                                    <option value="" disabled>Choose Ad Group</option>
+                                <input placeholder="Heading 1 in ad" id="heading1" maxlength="30"
+                                    value="{{ ad.heading1 }}" name="heading1" type="text" class="validate" required>
+                                <label for="heading1">Heading 1</label>
+                            </div>
+                            <!-- Ad Group -->
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <select id="adGroup_name" name="adGroup_name" class="validate" required>
+                                        <option value="" disabled>Choose Ad Group</option>
                                         {% for adGroup in adGroups %}
-                                            {% if adGroup.adGroup_name == ad.adGroup_name %}
-                                                <option value="{{ adGroup.adGroup_name }}" selected>{{ adGroup.adGroup_name }}</option>
-                                            {% else %}
-                                                <option value="{{ adGroup.adGroup_name }}">{{ adGroup.adGroup_name }}</option>
-                                            {% endif %}
+                                        {% if adGroup.adGroup_name == ad.adGroup_name %}
+                                        <option value="{{ adGroup.adGroup_name }}" selected>{{ adGroup.adGroup_name }}
+                                        </option>
+                                        {% else %}
+                                        <option value="{{ adGroup.adGroup_name }}">{{ adGroup.adGroup_name }}</option>
+                                        {% endif %}
                                         {% endfor %}
-                                </select>
-                                <label for="adGroup_name">Select Ad Group</label>
+                                    </select>
+                                    <label for="adGroup_name">Select Ad Group</label>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- Heading 2 -->
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input placeholder="Heading 2 in ad" maxlength="30" id="heading2" name="heading2"
+                                    value="{{ ad.heading2 }}" type="text" class="validate" required>
+                                <label for="heading2">Heading 2</label>
                             </div>
                         </div>
-        
-                    </div>
-                    <!-- Heading 2 -->
-                    <div class="row">
-                        <div class="input-field col s6">
-                                <input placeholder="Heading 2 in ad" maxlength="30" id="heading2" name="heading2"
-                                 value="{{ ad.heading2 }}" type="text" class="validate" required>
-                                <label for="heading2">Heading 2</label>
-                        </div>
-                    </div>
-                    <!-- Heading 3 -->
-                    <div class="row">
-                        <div class="input-field col s6">
-                                <input placeholder="Heading 3 in ad" maxlength="30" id="heading3" name="heading3"
-                                value="{{ ad.heading3 }}" type="text" class="validate" required>
-                                <label for="heading3">Heading 3</label>
-                        </div>
-                    </div>
-                    <!-- Description -->
-                    <div class="row">
-                        <div class="input-field col s12">
-                                <textarea id="description" placeholder="Ad description" maxlength="90"
-                                 name="description" class="materialize-textarea" required>{{ ad.description }}</textarea>
-                                <label for="description">Description</label>
-                        </div>
-                    </div>
-                    <!-- Description2 -->
-                    <div class="row">
-                        <div class="input-field col s12">
-                                <textarea id="description2" placeholder="Ad description" maxlength="90"
-                                 name="description2" class="materialize-textarea" required>{{ ad.description2 }}</textarea>
-                                <label for="description2">Description #2</label>
-                        </div>
-                    </div>
-                    <!-- Landingpage -->
+                        <!-- Heading 3 -->
                         <div class="row">
                             <div class="input-field col s6">
-                                <input placeholder="landing_page" id="landing_page" name="landing_page" 
-                                value="{{ ad.landing_page}}" type="text" class="validate" required>
+                                <input placeholder="Heading 3 in ad" maxlength="30" id="heading3" name="heading3"
+                                    value="{{ ad.heading3 }}" type="text" class="validate" required>
+                                <label for="heading3">Heading 3</label>
+                            </div>
+                        </div>
+                        <!-- Description -->
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <textarea id="description" placeholder="Ad description" maxlength="90"
+                                    name="description" class="materialize-textarea"
+                                    required>{{ ad.description }}</textarea>
+                                <label for="description">Description</label>
+                            </div>
+                        </div>
+                        <!-- Description2 -->
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <textarea id="description2" placeholder="Ad description" maxlength="90"
+                                    name="description2" class="materialize-textarea"
+                                    required>{{ ad.description2 }}</textarea>
+                                <label for="description2">Description #2</label>
+                            </div>
+                        </div>
+                        <!-- Landingpage -->
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input placeholder="landing_page" id="landing_page" name="landing_page"
+                                    value="{{ ad.landing_page}}" type="text" class="validate" required>
                                 <label for="landing_page">Landingpage url</label>
                             </div>
                         </div>
                         <!-- Deadline -->
                         <div class="row">
-                        <div class="input-field col s6">
-        
-                                <input id="deadline" name="deadline" type="text" 
-                                value="{{ ad.deadline }}" class="datepicker validate" required>
+                            <div class="input-field col s6">
+
+                                <input id="deadline" name="deadline" type="text" value="{{ ad.deadline }}"
+                                    class="datepicker validate" required>
                                 <label for="deadline"><i class="far fa-calendar-alt"></i> Deadline</label>
+                            </div>
                         </div>
-                    </div>
-                    <!-- Submit -->
-                    <div class="row">
-                        <div class="col s12 center-align">
-                            <a href="{{ url_for('get_ads') }}" class="submit-button orange">Cancel <i class="fas fa-times"></i></a>
-                            <button type="submit" class="submit-button green">
-                                Edit ad <i class="fas fa-pen"></i>
-                            </button>
+                        <!-- Submit -->
+                        <div class="row">
+                            <div class="col s12 center-align">
+                                <a href="{{ url_for('get_ads') }}" class="submit-button orange">Cancel <i
+                                        class="fas fa-times"></i></a>
+                                <button type="submit" class="submit-button green">
+                                    Edit ad <i class="fas fa-pen"></i>
+                                </button>
+                            </div>
                         </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
-         </div>
-     </div>
-  </div>
+        </div>
+    </div>
 </div>
-        
+
 {% endblock %}

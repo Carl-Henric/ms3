@@ -19,24 +19,25 @@ mongo = PyMongo(app)
 
 
 @app.route("/")
-
 @app.route("/index")
 def index():
     return render_template("index.html")
 
 
-# Ads.html function
-
+# Approve ads function
 @app.route("/get_ads/<ad_id>", methods=["GET", "POST"])
 def approve_ads(ad_id):
     if request.method == "POST":
         update_approve = {
             "approved_by": request.form.get("approved_by")
         }
-    ad = mongo.db.ads.update({"_id": ObjectId(ad_id)}, {"$set": update_approve})
+    ad = mongo.db.ads.update({"_id": ObjectId(ad_id)}, {
+                             "$set": update_approve})
     adGroups = mongo.db.adGroups.find().sort("adGroup_name", 1)
     flash("Ad approved!")
     return redirect(url_for("get_ads"))
+
+# Ads - function to show ads
 
 
 @app.route("/get_ads/")
@@ -45,12 +46,12 @@ def get_ads():
     return render_template("ads.html", ads=ads)
 
 
-
-# Approved ads
+# Approved ads - Function to Collect "Approved"
 @app.route("/approved_ads")
 def approved_ads():
     ads = mongo.db.ads.find()
     return render_template("approved_ads.html", ads=ads)
+
 
 # Register function
 @app.route("/register", methods=["GET", "POST"])
@@ -76,6 +77,8 @@ def register():
     return render_template("register.html")
 
 # Login function
+
+
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
@@ -85,16 +88,16 @@ def login():
         if existing_user:
             if check_password_hash(
                existing_user["password"], request.form.get("password")):
-                    session["user"] = request.form.get("username").lower()
-                    flash("Welcome {}".format(
-                        request.form.get("username")))
-                    return redirect(url_for(
-                        "profile", username=session["user"]))
+                session["user"] = request.form.get("username").lower()
+                flash("Welcome {}".format(
+                    request.form.get("username")))
+                return redirect(url_for(
+                    "profile", username=session["user"]))
             else:
                 flash("Incorrect Username and/or Password")
                 return redirect(url_for('login'))
-           
-        else: 
+
+        else:
             flash("Incorrect Username and/or Password")
             return redirect(url_for("login"))
 
@@ -160,6 +163,7 @@ def edit_ad(ad_id):
         }
         mongo.db.ads.update({"_id": ObjectId(ad_id)}, submit_ad)
         flash("Ad updated")
+        return redirect(url_for("get_ads"))
 
     ad = mongo.db.ads.find_one({"_id": ObjectId(ad_id)})
     adGroups = mongo.db.adGroups.find().sort("adGroup_name", 1)
@@ -216,7 +220,6 @@ def add_adgroup():
     return render_template("add_adgroup.html")
 
 
-
 @app.route("/edit_adgroup/<adgroup_id>", methods=["GET", "POST"])
 def edit_adgroup(adgroup_id):
     if request.method == "POST":
@@ -229,7 +232,6 @@ def edit_adgroup(adgroup_id):
 
     adgroup = mongo.db.adGroups.find_one({"_id": ObjectId(adgroup_id)})
     return render_template("edit_adgroup.html", adgroup=adgroup)
-
 
 
 @app.route("/delete_adgroup/<adgroup_id>")
