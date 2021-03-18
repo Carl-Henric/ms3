@@ -29,9 +29,13 @@ def index():
 
 @app.route("/get_ads/<ad_id>", methods=["GET", "POST"])
 def approve_ads(ad_id):
-    ad = mongo.db.ads.find_one({"_id": ObjectId(ad_id)})
+    if request.method == "POST":
+        update_approve = {
+            "approved_by": request.form.get("approved_by")
+        }
+    ad = mongo.db.ads.update({"_id": ObjectId(ad_id)}, {"$set": update_approve})
     adGroups = mongo.db.adGroups.find().sort("adGroup_name", 1)
-    return render_template("ads.html", ad=ad, adGroups=adGroups)
+    return redirect(url_for("get_ads"))
 
 
 @app.route("/get_ads/")
