@@ -51,8 +51,7 @@
                                     </div>
                                     <!-- Comment, edit, delete buttons -->
                                     <div class="col s6 m3">
-                                                <form method="POST" action="{{ url_for('get_ads', ad_id=ad._id) }}">
-                                                    <input type="checkbox" value="on" id="approved_by" name="approved_by"><label for="approved_by"></label>
+                                                <form method="POST" action="{{ url_for('get_ads') }}">
                                                     <button type="submit" value="on" name="approved_by">Approve</button>
                                                 </form>
                                                 <a href="{{ url_for('comment_ad', ad_id=ad._id) }}" class="submit-button green">Approve  <i class="fas fa-thumbs-up"></i></a>
