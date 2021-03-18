@@ -51,9 +51,9 @@
                                 {% endif %}
 
                             </div>
-                            <!-- Comment, edit, delete buttons -->
+                            <!-- Approve, comment, edit, delete buttons -->
                             <div class="col s6 m3">
-                                <form method="POST" action="{{ url_for('get_ads', approved_id=approved._id) }}">
+                                <form method="POST" action="{{ url_for('approve_ads', ad_id=ad._id) }}">
                                     <button type="submit" value="on" name="approved_by">Approve</button>
                                 </form>
                                 <a href="{{ url_for('comment_ad', ad_id=ad._id) }}" class="submit-button green">Approve <i

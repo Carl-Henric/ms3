@@ -27,20 +27,19 @@ def index():
 
 # Ads.html function
 
+@app.route("/get_ads/<ad_id>", methods=["GET", "POST"])
+def approve_ads(ad_id):
+    ad = mongo.db.ads.find_one({"_id": ObjectId(ad_id)})
+    adGroups = mongo.db.adGroups.find().sort("adGroup_name", 1)
+    return render_template("ads.html", ad=ad, adGroups=adGroups)
 
-@app.route("/get_ads/", methods=["GET", "POST"])
-def get_ads(approved_id):
-    if request.method == "POST":
-        # approved_by = "on" if request.form.get("approved_by") else "off"
-        approve = {
-            "approved_by": request.form.get("approved_by")
-        }
-        mongo.db.ads.update({"_id": ObjectId(approved_id)}, approve)
-        flash("Approved!")
-        return redirect(url_for("get_ads"))
 
+@app.route("/get_ads/")
+def get_ads():
     ads = mongo.db.ads.find()
     return render_template("ads.html", ads=ads)
+
+
 
 # Approved ads
 @app.route("/approved_ads")
