@@ -24,23 +24,23 @@ mongo = PyMongo(app)
 def index():
     return render_template("index.html")
 
+# Ads.html function
+
 @app.route("/get_ads", methods=["GET", "POST"])
 def get_ads():
     if request.method == "POST":
-        approved_by = "on" if request.form.get("approved_by") else "off"
-        ad = {
-            "comment": request.form.get("comment"),
-            "approved_by": request.form.get("approved_by"),
-
+        # approved_by = "on" if request.form.get("approved_by") else "off"
+        approve = {
+            "approved_by": request.form.get("approved_by")
         }
-        mongo.db.ads.insert_one(ad)
-        flash("Ad added!")
+        mongo.db.ads.update({"_id": ObjectId()}, approve)
+        flash("Approved!")
         return redirect(url_for("get_ads"))
 
     ads = mongo.db.ads.find()
     return render_template("ads.html", ads=ads)
 
-
+# Approved ads
 @app.route("/approved_ads")
 def approved_ads():
     ads = mongo.db.ads.find()
@@ -125,7 +125,9 @@ def add_ad():
             "description2": request.form.get("description2"),
             "landing_page": request.form.get("landing_page"),
             "deadline": request.form.get("deadline"),
-            "created_by": session["user"]
+            "created_by": session["user"],
+            "approved_by": request.form.get("approved_by")
+
         }
         mongo.db.ads.insert_one(ad)
         flash("Ad added!")
