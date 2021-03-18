@@ -1,5 +1,5 @@
-{% extends "base.html" %}
-{% block content %}
+{% extends "base.html" %} 
+{% block content %} 
 
 <div class="hero">
     <h3>Ads</h3><br>
@@ -52,7 +52,7 @@
                         </div>
                         <!-- Comment, edit, delete buttons -->
                         <div class="col s6 m3">
-                            <form method="POST" action="{{ url_for('get_ads') }}">
+                            <form method="POST" action="{{ url_for('get_ads', ad_id=ad._id) }}">
                                 <button type="submit" value="on" name="approved_by">Approve</button>
                             </form>
                             <a href="{{ url_for('comment_ad', ad_id=ad._id) }}" class="submit-button green">Approve <i
