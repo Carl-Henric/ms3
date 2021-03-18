@@ -35,6 +35,7 @@ def approve_ads(ad_id):
         }
     ad = mongo.db.ads.update({"_id": ObjectId(ad_id)}, {"$set": update_approve})
     adGroups = mongo.db.adGroups.find().sort("adGroup_name", 1)
+    flash("Ad approved!")
     return redirect(url_for("get_ads"))
 
 

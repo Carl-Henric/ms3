@@ -26,7 +26,8 @@
                                     <b>Approved by client:</b> <i class="fas fa-check grey-text"></i>
                                     {% endif %}
                                 </span><br>
-                                <b> Deadline:</b> {{ ad.deadline }}</p>
+                            <!-- Deadline -->
+                                    <b> Deadline:</b> {{ ad.deadline }}</p>
                             <!-- Display Ad-->
                             <div class="ad-exempel">
                                 <p class="adlink"><b>Ad · </b> {{ ad.landing_page }}</p>
@@ -38,18 +39,15 @@
                             <div class="comment">
                                 <p><b><i class="fas fa-comment"></i> Comment by client:</b><br> <em>{{ ad.comment }}
                                     </em></p>
-                            
-                            {% endif %}
                             </div>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
+                {% endif %}
+                {% endfor %}
             </div>
         </div>
-        {% endif %}
-        {% endfor %}
     </div>
 </div>
-</div>
-
 {% endblock %}
