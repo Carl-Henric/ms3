@@ -17,15 +17,6 @@
             <div class="card-panel white rounded">
                 <div class="row">
                     <form class="col s12" method="POST" action="{{ url_for('add_ad') }}">
-                        <!-- For user -->
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <input placeholder="Client" id="client" maxlength="30" name="client"
-                                    type="text" class="validate" required>
-                                <label for="client">Client</label>
-                            </div>
-                        </div>
-                        <div class="row">
                         <!-- Heading 1 -->
                         <div class="row">
                             <div class="input-field col s6">
@@ -91,9 +82,15 @@
                             <div class="input-field col s6">
                                 <input id="deadline" name="deadline" type="text" class="datepicker validate" required>
                                 <label for="deadline"><i class="far fa-calendar-alt"></i> Deadline</label>
-                                <!-- <input type="checkbox" value="off" id="approved_by" name="approved_by"><label
-                                    for="approved_by"></label>
-                            </div> -->
+                            </div>
+                        </div>
+                        <!-- For user -->
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input placeholder="Client" id="client" maxlength="30" name="client"
+                                    type="text" class="validate" required>
+                                <label for="client">Client</label>
+                            </div>
                         </div>
                         <!-- Submit -->
                         <div class="row">

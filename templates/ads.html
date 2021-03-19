@@ -4,12 +4,6 @@
 
 <div class="hero">
     <h3>Ads</h3><br>
- 
-        {% if session.user|lower == ads.client |lower %}
-        <p> test if add can be shown here </p>
-        {% endif %}
-
-
     <h4>Check your ads below</h4>
     {% with messages = get_flashed_messages() %}
     {% if messages %}
@@ -28,6 +22,13 @@
                 <div class="row">
                     <!-- Ad area -->
                     <div class="ad-container">
+                        <!-- Start for loop -->
+                    {% for client in clients %}
+                        {% if session.user|lower == client.client |lower %}
+                        <h4>Testing</h4>
+                        {% endif %}
+                    {% endfor %}
+                    <!-- end for loop-->
                         <p><b> Ad Group:</b> {{ ad.adGroup_name }}
                             <span class="right">
                                 <!-- Show only if Ad is approved by client -->

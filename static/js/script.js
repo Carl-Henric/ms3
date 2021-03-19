@@ -40,7 +40,7 @@
     }
   });
 
-// Google maps script
+/* Google maps script
 function initMap() {
     var map = new google.maps.Map(getElementById("map"), {
         zoom: 4,
@@ -55,4 +55,4 @@ var locations = [
     {lat: 59.3355, lng: 18.0731}
 ];
 
-var marker
+var marker */
