@@ -46,13 +46,13 @@ def approve_ads(ad_id):
     flash("Ad approved!")
     return redirect(url_for("get_ads"))
 
+
 # Ads - function to show ads
-
-
 @app.route("/get_ads/")
 def get_ads():
+    clients = mongo.db.ads.find()
     ads = mongo.db.ads.find()
-    return render_template("ads.html", ads=ads)
+    return render_template("ads.html", ads=ads, clients=clients)
 
 
 # Approved ads - Function to Collect "Approved"
