@@ -20,6 +20,16 @@ body {
 }
 
 
+h1,
+h2,
+h4 {
+color: #6c7478;
+}
+
+h5 {
+    color: #8f654b;
+}
+
 nav a {
     color: black !important;
     font-weight: 300;
@@ -48,10 +58,6 @@ nav {
 
 .hero h3 {
     font-weight: 700;
-}
-
-.hero h4 {
-    font-weight: 300;
 }
 
 h3 {
