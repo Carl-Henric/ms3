@@ -49,6 +49,7 @@
             <h4 class="center-align"><i class="fas fa-bolt"></i>Ad Reviewer</h4>
         </li>
         <li><a href="{{ url_for('index') }}">Home</a></li>
+        <li><a href="{{ url_for('howto') }}">How To</a></li>
         {% if session.user %}
         <li><a href="{{ url_for('get_ads') }}">Ads</a></li>
         {% if session.user|lower == "admin"|lower %}
@@ -86,6 +87,7 @@
                 <h5>Menu</h5>
                 <ul>
                     <li><a href="{{ url_for('index') }}">Home</a></li>
+                    <li><a href="{{ url_for('howto') }}">How To</a></li>
                     {% if session.user %}
                     <li><a href="{{ url_for('get_ads') }}">Ads</a></li>
                     {% if session.user|lower == "admin"|lower %}

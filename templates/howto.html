@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+
 <!-- header content -->
 <div class="hero">
     <h3 class="beige">How it works</h3><br>
@@ -10,26 +11,46 @@
     <div class="container">
         <div class="card-panel white">
             <div class="row">
-                <div class="col s12 m6 center-align">
-                    <h3 class="boldfont forrestgreen">Register</h3>
-                    <p class="forrestgreen">Reviewer is a service that help clients and agencys streamline their Google Ad content
-                        production.
-                        <b>No more</b> back and forth sending emails with ad suggestions. </p>
+                <!-- Grid with image and text-->
+                <div class="row">
+                    <div class="col s12 m6 center-align">
+                        <img src="static/images/reviewing.jpg" class="imagesize" alt="reviwing image">
+                    </div>
+                    <div class="col s12 m6">
+                        <h3 class="boldfont forrestgreen">One click = Approved!</h3>
+                        <p class="forrestgreen short-text">
+                            Most of all ad buyers have gotten used to sending proofs back and forth until both parties
+                            are satisfied. Ad Reviewer has solved it with a single click, or a comment. Register and
+                            streamline your ad production today.
+                        </p>
+                    </div>
                 </div>
-                <div class="col s12 m6">
-                    <img src="static/images/reviewing.jpg" class="imagesize" alt="reviwing image">
+                <!-- Steps how to -->
+                <div class="col s12 m3 center-align">
+                    <h4 class="forrestgreen boldfont"> Register
+                        <i class="fas fa-user-plus"></i></h4>
+                    <p class="forrestgreen short-text">
+                        Register with name, <br>
+                        company and password. Or ask your agency for your user information </p>
                 </div>
-            </div>
-            <!-- Step 2-->
-            <div class="row">
-                <div class="col s12 m6 center-align">
-                    <h3 class="boldfont forrestgreen">Review your ads</h3>
-                    <p class="forrestgreen">Reviewer is a service that help clients and agencys streamline their Google Ad content
-                        production.
-                        <b>No more</b> back and forth sending emails with ad suggestions. </p>
+                <div class="col s12 m3 center-align">
+                    <h4 class="forrestgreen boldfont">Login
+                        <i class="fas fa-door-open"></i></h4>
+                    <p class="forrestgreen short-text">
+                        Sign in with your user information. Multiple users can have acess to one account.</p>
                 </div>
-                <div class="col s12 m6">
-                    <img src="static/images/reviewing.jpg" class="imagesize" alt="reviwing image">
+                <div class="col s12 m3 center-align">
+                    <h4 class="forrestgreen boldfont">Comment
+                        <i class="fas fa-comment"></i></h4>
+                    <p class="forrestgreen short-text">
+                        Click on "Ads" in the menu bar, then comment the ads you want to correct.</p>
+                </div>
+                <div class="col s12 m3 center-align">
+                    <h4 class="forrestgreen boldfont">Approve
+                        <i class="fas fa-thumbs-up"></i></h4>
+                    <p class="forrestgreen short-text">
+                        Press "Approve" button to approve your ads. Now your agency publishes the approved ads, sit back
+                        and enjoy!</p>
                 </div>
             </div>
         </div>
