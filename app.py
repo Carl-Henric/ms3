@@ -24,6 +24,11 @@ def index():
     return render_template("index.html")
 
 
+@app.route("/howto")
+def howto():
+    return render_template("howto.html")
+
+
 # Approve ads function
 @app.route("/get_ads/<ad_id>", methods=["GET", "POST"])
 def approve_ads(ad_id):
