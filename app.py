@@ -140,7 +140,8 @@ def add_ad():
             "landing_page": request.form.get("landing_page"),
             "deadline": request.form.get("deadline"),
             "created_by": session["user"],
-            "approved_by": request.form.get("approved_by")
+            "approved_by": request.form.get("approved_by"),
+            "client": request.form.get("client")
 
         }
         mongo.db.ads.insert_one(ad)
