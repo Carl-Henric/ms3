@@ -170,7 +170,8 @@ def edit_ad(ad_id):
             "description2": request.form.get("description2"),
             "landing_page": request.form.get("landing_page"),
             "deadline": request.form.get("deadline"),
-            "created_by": session["user"]
+            "created_by": session["user"],
+            "client": request.form.get("client")
         }
         mongo.db.ads.update({"_id": ObjectId(ad_id)}, submit_ad)
         flash("Ad updated")
@@ -195,7 +196,8 @@ def comment_ad(ad_id):
             "landing_page": request.form.get("landing_page"),
             "deadline": request.form.get("deadline"),
             "created_by": session["user"],
-            "comment": request.form.get("comment")
+            "comment": request.form.get("comment"),
+            "client": request.form.get("client")
         }
         mongo.db.ads.update({"_id": ObjectId(ad_id)}, comment_ad)
         flash("Comment updated")
