@@ -28,6 +28,10 @@ def index():
 def howto():
     return render_template("howto.html")
 
+@app.route("/contact")
+def contact():
+    return render_template("contact.html")
+
 
 # Approve ads function
 @app.route("/get_ads/<ad_id>", methods=["GET", "POST"])

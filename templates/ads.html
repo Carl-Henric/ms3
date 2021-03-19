@@ -4,11 +4,11 @@
 
 <div class="hero">
     <h3>Ads</h3><br>
-    {% for client in clients %}
+    <!---
         {% if session.user|lower == {{ username }}|lower %}
         test if add can be shown here
         {% endif %}
-    {% endfor %}
+    -->
 
     <h4>Check your ads below</h4>
     {% with messages = get_flashed_messages() %}
