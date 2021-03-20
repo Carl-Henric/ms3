@@ -18,10 +18,11 @@
     <div class="row">
         <div class="col s12 m8 offset-m2 grey lighten-5">
             {% for ad in ads %}
-            <div class="adcard z-depth-2 mobile-font-size col s12 m8 offset-m2">
+            {% if session.user == ad.client %} 
+                <div class="adcard z-depth-2 mobile-font-size col s12 m8 offset-m2">
                 <div class="row">
                     <!-- Ad area -->
-                    {% if session.user == ad.client %}    
+                       
                         <div class="ad-container">
 
                         <p><b> Ad Group:</b> {{ ad.adGroup_name }}
@@ -70,9 +71,10 @@
                         {% endif %}
                     
                         </div>
-                    {% endif %}
-                </div>
-                </div>
+                    
+                    </div>
+                    </div>
+               {% endif %} 
             {% endfor %}
         </div>
     </div>
