@@ -86,9 +86,8 @@ def register():
         return redirect(url_for("profile", username=session["user"]))
     return render_template("register.html")
 
+
 # Login function
-
-
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
@@ -114,6 +113,7 @@ def login():
     return render_template("login.html")
 
 
+# Profile function
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     username = mongo.db.clients.find_one(
@@ -125,13 +125,14 @@ def profile(username):
     return redirect(url_for("login"))
 
 
+# Logout function
 @app.route("/logout")
 def logout():
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for('login'))
 
-
+# Add Ad function
 @app.route("/add_ad", methods=["GET", "POST"])
 def add_ad():
     if request.method == "POST":
@@ -157,6 +158,7 @@ def add_ad():
     return render_template("add_ad.html", adGroups=adGroups)
 
 
+# Edit add function
 @app.route("/edit_ad/<ad_id>", methods=["GET", "POST"])
 def edit_ad(ad_id):
 
@@ -182,6 +184,7 @@ def edit_ad(ad_id):
     return render_template("edit_ad.html", ad=ad, adGroups=adGroups)
 
 
+# Comment ad function
 @app.route("/comment_ad/<ad_id>", methods=["GET", "POST"])
 def comment_ad(ad_id):
 
@@ -207,6 +210,7 @@ def comment_ad(ad_id):
     return render_template("comment_ad.html", ad=ad, adGroups=adGroups)
 
 
+# Delete ad function
 @app.route("/delete_ad/<ad_id>")
 def delete_ad(ad_id):
     mongo.db.ads.remove({"_id": ObjectId(ad_id)})
@@ -214,12 +218,13 @@ def delete_ad(ad_id):
     return redirect(url_for("get_ads"))
 
 
+# Ad Groups
 @app.route("/adgroups")
 def adgroups():
     adGroups = list(mongo.db.adGroups.find().sort("adGroup_name", 1))
     return render_template("adgroups.html", adGroups=adGroups)
 
-
+# add Ad Group function
 @app.route("/add_adgroup", methods=["GET", "POST"])
 def add_adgroup():
     if request.method == "POST":
@@ -233,6 +238,7 @@ def add_adgroup():
     return render_template("add_adgroup.html")
 
 
+# Edit Ad group function
 @app.route("/edit_adgroup/<adgroup_id>", methods=["GET", "POST"])
 def edit_adgroup(adgroup_id):
     if request.method == "POST":
@@ -247,6 +253,7 @@ def edit_adgroup(adgroup_id):
     return render_template("edit_adgroup.html", adgroup=adgroup)
 
 
+# Delete ad Group function
 @app.route("/delete_adgroup/<adgroup_id>")
 def delete_adgroup(adgroup_id):
     mongo.db.adGroups.remove({"_id": ObjectId(adgroup_id)})
@@ -257,4 +264,4 @@ def delete_adgroup(adgroup_id):
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
-            debug=True)
+            debug=False)

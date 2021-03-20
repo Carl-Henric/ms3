@@ -21,8 +21,8 @@
                         <div class="hidden">
                             <div class="row">
                                 <div class="input-field col s6">
-                                    <input placeholder="Heading 1 in ad" id="heading1" maxlength="30"
-                                        value="{{ ad.heading1 }}" name="heading1" type="text" class="validate" required>
+                                    <input placeholder="Heading 1 in ad" id="heading1" maxlength="30" 
+                                    value="{{ ad.heading1 }}" name="heading1" type="text" class="validate" required>
                                     <label for="heading1">Heading 1</label>
                                 </div>
                                 <!-- Ad Group -->
@@ -33,7 +33,8 @@
                                             {% for adGroup in adGroups %}
                                             {% if adGroup.adGroup_name == ad.adGroup_name %}
                                             <option value="{{ adGroup.adGroup_name }}" selected>
-                                                {{ adGroup.adGroup_name }}</option>
+                                                {{ adGroup.adGroup_name }}
+                                            </option>
                                             {% else %}
                                             <option value="{{ adGroup.adGroup_name }}">{{ adGroup.adGroup_name }}
                                             </option>
@@ -48,17 +49,16 @@
                             <!-- Heading 2 -->
                             <div class="row">
                                 <div class="input-field col s6">
-                                    <input placeholder="Heading 2 in ad" maxlength="30" id="heading2" name="heading2"
-                                        value="{{ ad.heading2 }}" type="text" class="validate" required>
+                                    <input placeholder="Heading 2 in ad" maxlength="30" id="heading2" 
+                                    name="heading2" value="{{ ad.heading2 }}" type="text" class="validate" required>
                                     <label for="heading2">Heading 2</label>
                                 </div>
                             </div>
                             <!-- Description -->
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <textarea id="description" placeholder="Ad description" maxlength="90"
-                                        name="description" class="materialize-textarea"
-                                        required>{{ ad.description }}</textarea>
+                                    <textarea id="description" placeholder="Ad description" maxlength="90" 
+                                    name="description" class="materialize-textarea" required>{{ ad.description }}</textarea>
                                     <label for="description">Description</label>
                                 </div>
                             </div>
@@ -66,8 +66,8 @@
                             <!-- Landingpage -->
                             <div class="row">
                                 <div class="input-field col s6">
-                                    <input placeholder="landing_page" id="landing_page" name="landing_page"
-                                        value="{{ ad.landing_page}}" type="text" class="validate" required>
+                                    <input placeholder="landing_page" id="landing_page" 
+                                    name="landing_page" value="{{ ad.landing_page}}" type="text" class="validate" required>
                                     <label for="landing_page">Landingpage url</label>
                                 </div>
                             </div>
@@ -75,8 +75,7 @@
                             <div class="row">
                                 <div class="input-field col s6">
 
-                                    <input id="deadline" name="deadline" type="text" value="{{ ad.deadline }}"
-                                        class="datepicker validate" required>
+                                    <input id="deadline" name="deadline" type="text" value="{{ ad.deadline }}" class="datepicker validate" required>
                                     <label for="deadline"><i class="far fa-calendar-alt"></i> Deadline</label>
                                 </div>
                             </div>
@@ -84,16 +83,16 @@
                         <!-- Comment -->
                         <div class="row">
                             <div class="input-field col s12">
-                                <textarea id="comment" placeholder="comment" maxlength="90" name="comment"
-                                    class="materialize-textarea" required>{{ ad.comment }}</textarea>
+                                <textarea id="comment" placeholder="comment" maxlength="90" 
+                                name="comment" class="materialize-textarea" required>{{ ad.comment }}</textarea>
                                 <label for="comment">comment</label>
                             </div>
                         </div>
                         <!-- Submit -->
                         <div class="row">
                             <div class="col s12 center-align">
-                                <a href="{{ url_for('get_ads') }}" class="submit-button orange">Cancel <i
-                                        class="fas fa-times"></i></a>
+                                <a href="{{ url_for('get_ads') }}" class="submit-button orange">Cancel 
+                                    <i class="fas fa-times"></i></a>
                                 <button type="submit" class="submit-button green">
                                     Send comment <i class="fas fa-pen"></i>
                                 </button>

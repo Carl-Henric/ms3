@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
-        integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
-        crossorigin="anonymous" type="text/css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-        type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" 
+    integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" 
+    crossorigin="anonymous" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" type="text/css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
     {% block styles %}
     {% endblock %}
@@ -20,7 +20,8 @@
     <!--  Desktop Menu from Materialize  -->
     <nav class="nav-extended white text-shadow z-depth-3">
         <div class="nav-wrapper container">
-            <a href="{{ url_for('index') }}" class="logo"><i class="fas fa-bolt"></i> Ad <span class="forrestgreen">Reviewer©</span></a>
+            <a href="{{ url_for('index') }}" class="logo">
+                <i class="fas fa-bolt"></i> Ad <span class="forrestgreen">Reviewer©</span></a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger right">
                 <i class="fas fa-bars"></i></a>
             <ul class="right hide-on-med-and-down">
@@ -108,17 +109,18 @@
                 <h5>Contact</h5>
                 <ul>
                     <li><a href="mailto:carlhenric.grip@gmail.com"><i class="far fa-envelope"></i> Mail</a></li>
-                    <li><a href="https://www.linkedin.com/in/carl-henric-grip-462123104/" target="_blank"><i
-                                class="fab fa-linkedin-in"></i> Linkedin</a></li> <li><a
-                        href="https://github.com/Carl-Henric" target="_blank"><i class="fab fa-github"></i> Git Hub</a></li> 
+                    <li><a href="https://www.linkedin.com/in/carl-henric-grip-462123104/" 
+                        target="_blank"><i class="fab fa-linkedin-in"></i> Linkedin</a></li>
+                    <li><a href="https://github.com/Carl-Henric" target="_blank">
+                        <i class="fab fa-github"></i> Git Hub</a></li>
                 </ul>
             </div>
         </div>
     </footer>
     {% endblock %}
     <!-- Jquery script-->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" 
+    crossorigin="anonymous"></script>
     <!--  Materilize JS script  -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
