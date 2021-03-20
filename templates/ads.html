@@ -18,7 +18,7 @@
     <div class="row">
         <div class="col s12 m8 offset-m2 grey lighten-5">
             {% for ad in ads %}
-            {% if session.user == ad.client %} 
+            {% if session.user == ad.client or session.user == "admin" %} 
                 <div class="adcard z-depth-2 mobile-font-size col s12 m8 offset-m2">
                 <div class="row">
                     <!-- Ad area -->
