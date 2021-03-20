@@ -1,7 +1,8 @@
 ![header](static/images/header1.png)
 # Ad Reviewer - MS3
-## Ad Reviewer is as service that I missed when I worked at ad agencys earlier. It is a easy to use service that let clients proof/correct ads form the agencys without e-mails sending back and fourth. It is easy to use and with right tweaks it could be a great tool for ad agencys. 
-Ad agencys can add content for Google Ads and then their clients can approve or comment them, instead of sending emails.  
+### Ad Reviewer is as service that I missed when I worked at ad agencys earlier. It is a easy to use service that let clients proof/correct ads form the agencys without e-mails sending back and fourth. It is easy to use and with right tweaks it could be a great tool for ad agencys. 
+### Ad agencys can add content for Google Ads and then their clients can approve or comment them, instead of sending emails. This kind of service is needed because there is nothing simillar for what I have seen. It makes the process of making ads more efficent and ensures that the correct ads will be published on time. 
+[Watch live here](https://ms3-ch.herokuapp.com/)
 ----
 ## UX
 ## Project Goals
@@ -109,6 +110,7 @@ Here is the list:
 * Get noticed when you have a Ad to approve. 
 * Abbility to connect Google Ad account to Ad reviewer. 
 * Tablet UX
+* Contact page 
 
 ---
 ## Testing 
@@ -209,33 +211,56 @@ This problem had my brain warm a couple of times. I now what the solution should
 
 Collections & Schema: 
 ### Ads 
-![ads](static/images/ads.png)
+![ads](static/images/ads2.png)
+
+The Ads collection store all data regarding the ads and enable to display and modify the data on the site.
 
 ### Ad Groups 
 ![ads](static/images/adgroups.png)
 
+Ad Groups collections is for putting the ads inside of it. The adGroup_name is used to display the Ad groups when creating a add. 
+
 ### Clients
 ![ads](static/images/clients.png)
 
+Clients collections is all the users on the site, the company field is not used yet bul will in future features. 
+
 ---
 ## Deployment
-The page is made with Git in combination with Git Hub. For more control of the process I have been commited more often in this project. 
 
+### Git Hub
+1. Go to [Github](https://github.com/Carl-Henric/ms3) and click the “Code”-button with the down arrow and copy the http-address.
+2. Open Gitpod and open a new terminal, then click terminal, and new terminal.
+3. In the terminal, paste the code and press enter.
+4. Type touch env.py (or add a new file and name it env.py) to store all your functions and variables. 
+5. Make sure that your env.py contain these files: 
+*   Import os
+*   os.environ.setdefault("IP", "enter value")
+*   os.environ.setdefault("PORT", "enter value")
+*    os.environ.setdefault("SECRET_KEY", "enter value")
+*   os.environ.setdefault("MONGO_URI", "enter value")
+*   os.environ.setdefault("MONGO_DBNAME", "enter value")
+6. Check so yuor env.py is listed in the .ignore file. 
+7. Run your app by typing python3 app.py in the terminal. 
 
-1. Got to [Github](https://github.com/) and sign in with the form in upper right corner.
-2. Or, go direct to https://github.com/Carl-Henric/MS2. 
-3. In the Tab menu above the content area, click on settings. 
-4. Scroll down to the section called Pages, right under the Archives section. 
-5. Choose Master Branch from the source dropdown menu.
-6. Click to confirm my selection.
-7. Now the page is published, see link in blue under the heading ### Git Hub Pages.  
-
-### How to run this project locally (How to clone this project from Github:)
-1. Go to https://github.com/Carl-Henric/MS2 
-2. Click the “Code”-button with the down arrow and copy the http-address.
-3. Open Gitpod and open a new terminal, then click terminal, and new terminal.
-4. In the terminal, paste the code and press enter.
-5. Voila!
+### Deplyment to Heroku:
+**In your terminal**
+1. Create a procfile: type python app.py > Procfile
+2. Type pip freeze--local > requirements.txt
+**Go to Heroku.com**
+3. Logg in and click "Create new app" form your desktop. 
+4. Choose a unique app-name, choose region and click "Create app".
+5. Setup automatic deployment from your Git Hub respository, on the right side of the heading "Deployment Method" click "Git Hub, connect to Github"
+6. Check so your Gir Hub username displays and add your respository name, press search and check so everything is correct.
+7.  Press "Connect"
+8. Got to settings in the tab menu. 
+9. Scroll til you se "Reveal config vars" and press its button. 
+10. Type in the same data as your env.py file: IP, PORT, MONGO_DBNAME, MONGO_URI, SECRET_KEY with their values. 
+11. Click on the "Deploy" in the tab above. 
+12. Scroll to "Manual Deploy" heading.
+13. Choose yuor branch your want to deploy, master is default.  
+14. Click "Deploy branch" button. 
+15. Done, good job!
 
 ---
 
