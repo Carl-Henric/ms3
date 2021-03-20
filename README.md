@@ -1,15 +1,15 @@
 ![header](static/images/header1.png)
 # Ad Reviewer - MS3
-### Ad Reviewer is as service that I missed when I worked at ad agencys earlier. It is a easy to use service that let clients proof/correct ads form the agencys without e-mails sending back and fourth. It is easy to use and with right tweaks it could be a great tool for ad agencys. 
-### Ad agencys can add content for Google Ads and then their clients can approve or comment them, instead of sending emails. This kind of service is needed because there is nothing simillar for what I have seen. It makes the process of making ads more efficent and ensures that the correct ads will be published on time. 
+#### Ad Reviewer is as service that I missed when I worked at ad agencys earlier. It is a easy to use service that let clients proof/correct ads form the agencys without e-mails sending back and fourth. It is easy to use and with right tweaks it could be a great tool for ad agencys. 
+#### Ad agencys can add content for Google Ads and then their clients can approve or comment them, instead of sending emails. This kind of service is needed because there is nothing simillar for what I have seen. It makes the process of making ads more efficent and ensures that the correct ads will be published on time. 
 [Watch live here](https://ms3-ch.herokuapp.com/)
 ----
 ## UX
 ## Project Goals
-Tha main goal with this project was to build a service that filled a need, both for ad agencys and their clients. To build something that could save both time and money for people.  
+The main goal with this project was to build a service that filled a need, both for ad agencys and their clients. To build something that could save both time and money for people.  
 
 ## User/client Goals 
-* As a client, I want to have the abbility to approve tha ad suggestions i like, and comment with feedback instead of sending e-mails. 
+* As a client, I want to have the abbility to approve the ad suggestions i like, and comment with feedback instead of sending e-mails. 
 
 ## User/Client stories 
 * As a client, I want it to be easy for me to registrate. 
@@ -38,7 +38,7 @@ Tha main goal with this project was to build a service that filled a need, both 
 ---
 ## Design Choices
 The overall idea with the site was to make it serious and clean without any disturbing elements. I wanted it to have a modern layout, both on desktop and mobiles. 
-The main focus was to make it easy for the users to understand it and proceed, without noticing the page itself. Tha faster the better for the client to see the ad suggestions. 
+The main focus was to make it easy for the users to understand it and proceed, without noticing the page itself. The faster the better for the client to see the ad suggestions. 
 
 
 ### Fonts
@@ -51,13 +51,13 @@ For the logo [Leckerli One](https://fonts.google.com/specimen/Leckerli+One?previ
 Roboto has been used in various font-weights and colours. 
 
 #### Paragraph
-Roboto hase been used in paragraphs fir its great readability on small devices. 
+Roboto hase been used in paragraphs for its great readability on small devices. 
 
 ### Icons 
 [Fontawesome](https://fontawesome.com/) has been used for all icons, works great has a wide range of icons. 
 
 ### Colours
-Tha main colours scheme is white, grey and black. With dashes of dark forrest green, dark brown and orange. The greyscale give it serious and light feeling and the colours made it more intresting. 
+The main colours scheme is white, grey and black. With dashes of dark forrest green, dark brown and orange. The greyscale give it serious and light feeling and the colours made it more intresting. 
 
 
 ---
@@ -75,7 +75,7 @@ Here is the list:
 * **MongoDB**: For storing the data. 
 * **HTML**: For structure and content. 
 * **CSS**: For styling the content and data.  
-* **Javascript/Jquery**: For making collapsble dropdown catch the data insie of it.  
+* **Javascript/Jquery**: For making collapsble dropdown catch the data inside of it etc.  
 * **Python + Flask**: Build routes and functions. 
 
 
@@ -83,7 +83,7 @@ Here is the list:
 * **Balsamiq**: for making wireframes. 
 * **Git**: for version control among the project.  
 * **Git hub**: For storing the project and keeping it safe. 
-* **Herokub**: Hosting platform for python etc. 
+* **Heroku**: Hosting platform for python etc. 
 * **Font awesome**: For alla the clean icons on the site.  
 * **Google fonts**: Font for the Logo. 
 * **Google devtools**: For responsive testing among the way. 
@@ -135,7 +135,7 @@ Though i want the page to be as fast as possible, I´v been tested it with [Gt M
 
 
 
-### User stories
+### Practical user stories
 #### As a client, I want it to be easy for me to registrate. 
     When entering the page, the registration button is the main CTA in orange so the user won´t miss it. And it is placed att the end of the menu. 
 ![registrate](static/images/registrate.png)
@@ -150,7 +150,7 @@ Though i want the page to be as fast as possible, I´v been tested it with [Gt M
 
 #### As a client, I want to be able to see and correct ad suggestions.  
     When you click on Ads in the menu, you will see your suggested ads. Right under each ad there is a "Approve" button and "Comment" button with associated icons. After the buttons, theren is also "Edit" and "Delete" is the user want to edit the ad by their own or delete it. 
-![Ads](static/images/profile dv.png) 
+![Ads](static/images/ads_client.png) 
 
 #### As a client, I want it to be easy for me to take action when i see a add suggestion. 
     As mentioned in the user story above, there are buttons in contrasting colors so it would be easy for the user to se what CTA there is. 
@@ -159,17 +159,6 @@ Though i want the page to be as fast as possible, I´v been tested it with [Gt M
     When your logged in, a how-to guide is shown, with a button direclty to the ads. 
 ![profile](static/images/profile1.png)
     
-
-
-
-* Registration
-* Login function
-* Linked to MongoDB database
-* Passwords are hashed so they are not shown in the MongoDB
-* CRUD-functions. 
-* Approve ad button
-* Comment ad button
-* Admin have access to more pages the ordinary user
 
 ---
 
@@ -188,7 +177,7 @@ Though i want the page to be as fast as possible, I´v been tested it with [Gt M
 
 
 ### Responsivness
-Among the process with this project, with every update the Google devolper tool has been used to check its responsiveness. The main focus has been it to works perfect on desktop and great on mobiles because of the user/client. The service target group is clients to Ad agencys and i belive they are mainly using desktop for this type of work, and second mobile. The UX for tablet users is´nt the best, but it will be fixed in future feuatures. 
+Among the process with this project, with every update the Google devolper tool has been used to check its responsiveness. The main focus has been it to works perfect on desktop and great on mobiles because of the user/client. The service target group is clients to Ad agencys and i believe they are mainly using desktop for this type of work, and second mobile. The UX for tablet users is´nt the best, but it will be fixed in future features. 
 
 
 
@@ -205,7 +194,7 @@ Have a hard time to make it work though I did´nt use the @app.route correct. Th
 
 This problem had my brain warm a couple of times. I now what the solution should look like but I troubled among the way. Admin can see all clients ads, but the client can only see their own ads.
 
--   Fix: The answer was to combine ads and clients with the correct field. Set a if statement for the whole loop that it sess user and the ads client needed to match to show it. 
+-   Fix: The answer was to combine ads and clients with the correct field. Set a if statement for the whole loop that it session user and the ads client needed to match to show it. 
 ---
 ## Data
 
@@ -268,7 +257,7 @@ Clients collections is all the users on the site, the company field is not used 
 Code inspiration and help:
 * The mini project by Tim Nelson (Code Institute) was my guidance when I got lost. 
 * Dropdown javascript script from mini project was used. 
-* Code Institut Tutors for guiding me in the right direction when I got lost.  
+* Code Institute Tutors for guiding me in the right direction when I got lost.  
 
 ## Images:
 Photo on start page and how to from [Moose Photos](https://www.pexels.com/sv-se/@moose-photos-170195) on [Pexels.com](https://www.pexels.com/sv-se/foto/man-manniskor-barbar-dator-kvinnor-1036641/)
